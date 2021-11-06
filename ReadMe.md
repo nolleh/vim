@@ -1,5 +1,4 @@
-# VIM INITIAL ENVIRONMENT
----
+# 1.VIM INITIAL ENVIRONMENT
 
 ## vimrc
 1. put .vimrc files to home dir, ``~``
@@ -7,15 +6,16 @@
 
 ## zshrc
 
-# APPENDIX
-----
+# 2.APPENDIX
 
-## ShortCut
+## 2-1. ShortCut
 
 easy to forget shortcut's list.
 
 ### Split
-- basic
+
+#### basic
+
 ```bash
 :vsp {file-name}
 ```
@@ -29,18 +29,40 @@ includes specifying file name,
 :sp
 ```
 
-- focusing
+#### focusing  
+
 Ctrl + w + {direction}
 
 the {direction} is, one of `h,j,k,l`
 
+#### Resizing
+
+- vertical split size
+Ctrl + w + > (bigger)
+Ctrl + w + < (smaller)
+
+```bash
+:vertical resize {N}
+```
+
+- horizontal split size
+
+'Ctrl' + 'w' + '+' (bigger)
+'Ctrl' + 'w' + '-' (smaller)
+
+```bash
+:resize {N}
+```
 
 ### Mode
 
 - getting in to explorer mode
+```bash 
 :Sexplore
+```
+```bash
 :Vexplore
-
+```
 
 ### File Manage
 
@@ -54,5 +76,20 @@ in file explore mode, 'd' for directory, '%' for file.
 - font size
 'cmd' + '+' or 'cmd' + 'shift' + '+'
 
+- move cursor 
+n + {direction}
+
+the {direction} is, one of `h,j,k,l`
+
+- move cursor to line's edge
+end of line, g + _
+start of line, g + ^
+
+
 ### Edit
 
+- enter insert mode to after last charactor.
+``a``
+
+
+## 2-2. Markdown Preview
