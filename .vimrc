@@ -10,13 +10,13 @@ set nu
 
 colorscheme jellybeans
 
-set ts=4 " Tab 너비
-set shiftwidth=4 " 자동 인덴트할 때 너비
+set ts=2 " Tab width
+set shiftwidth=2 " indentations width when automatically occurred
 
-set laststatus=2 " 상태바 표시를 항상한다
+set laststatus=2 " show status bar
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
-set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
+set autoread " if file was modifed from extetern, read automatically
 
 " set nocompatible
 " filetype plugin on
