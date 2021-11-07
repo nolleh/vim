@@ -24,8 +24,6 @@ if you have have password trouble in chsh, modify
 auth sufficient pam_shells.so
 ```
 
-
-
 ### install oh-my-zsh
 
 ```bash
@@ -44,7 +42,6 @@ ZSH_THEME="agnoster"
 prompt_dir() {
 	prompt_segment 39d $CURRENT_FG '%~'
 }
-```
 
 
 ### install powerline font 
