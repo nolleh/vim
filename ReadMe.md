@@ -6,6 +6,26 @@
 
 ## zshrc
 
+### install zsh 
+
+```bash
+$ apk add zsh 
+# for chsh
+$ apk add shadow
+$ chsh -s $(which zsh)
+$ apk add zsh-vcs
+```
+
+if you have have password trouble in chsh, modify 
+
+``etc/pam.d/chsh``
+
+```bash
+$ auth sufficient pam_shells.so
+```
+
+
+
 ### install oh-my-zsh
 
 ```bash
