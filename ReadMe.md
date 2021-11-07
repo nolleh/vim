@@ -18,6 +18,15 @@ apply agnoster
 $ ZSH_THEME="agnoster"
 ```
 
+``~/.oh-my-zsh/themes/agnoster.zsh-theme``
+
+```bash
+prompt_dir() {
+	prompt_segment 39d $CURRENT_FG '%~'
+}
+```
+
+
 ### install powerline font 
 
 ```bash
