@@ -9,11 +9,11 @@
 ### install zsh 
 
 ```bash
-$ apk add zsh 
+apk add zsh 
 # for chsh
-$ apk add shadow
-$ chsh -s $(which zsh)
-$ apk add zsh-vcs
+apk add shadow
+chsh -s $(which zsh)
+apk add zsh-vcs
 ```
 
 if you have have password trouble in chsh, modify 
@@ -21,7 +21,7 @@ if you have have password trouble in chsh, modify
 ``etc/pam.d/chsh``
 
 ```bash
-$ auth sufficient pam_shells.so
+auth sufficient pam_shells.so
 ```
 
 
@@ -29,32 +29,32 @@ $ auth sufficient pam_shells.so
 ### install oh-my-zsh
 
 ```bash
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ``` 
 
 apply agnoster
 
 ```bash
-$ ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
 ```
 
 ### install powerline font 
 
 ```bash
 # clone
-$ git clone https://github.com/powerline/fonts.git --depth=1
+git clone https://github.com/powerline/fonts.git --depth=1
 # install
-$ cd fonts
-$ ./install.sh
+cd fonts
+./install.sh
 # clean-up a bit
-$ cd ..
-$ rm -rf fonts
+cd ..
+rm -rf fonts
 ```
 
 or 
 
 ```bash
-$ ./font.sh
+./font.sh
 ```
 
 set font as 'Incololata for Powerline'
@@ -62,8 +62,8 @@ set font as 'Incololata for Powerline'
 ### syntax highlighting in command line
 
 ```bash
-$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-$ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 ```
 
 # 2.APPENDIX
