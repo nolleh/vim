@@ -6,6 +6,46 @@
 
 ## zshrc
 
+### install oh-my-zsh
+
+```bash
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+``` 
+
+apply agnoster
+
+```bash
+$ ZSH_THEME="agnoster"
+```
+
+### install powerline font 
+
+```bash
+# clone
+$ git clone https://github.com/powerline/fonts.git --depth=1
+# install
+$ cd fonts
+$ ./install.sh
+# clean-up a bit
+$ cd ..
+$ rm -rf fonts
+```
+
+or 
+
+```bash
+$ ./font.sh
+```
+
+set font as 'Incololata for Powerline'
+
+### syntax highlighting in command line
+
+```bash
+$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+$ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+```
+
 # 2.APPENDIX
 
 ## 2-1. ShortCut
