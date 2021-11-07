@@ -42,7 +42,7 @@ ZSH_THEME="agnoster"
 prompt_dir() {
 	prompt_segment 39d $CURRENT_FG '%~'
 }
-
+```
 
 ### install powerline font 
 
