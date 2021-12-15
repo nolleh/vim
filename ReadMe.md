@@ -95,6 +95,22 @@ includes specifying file name,
 :sp
 ```
 
+interchange position splited window
+```bash
+Ctrl + w + r
+```
+
+rotate split window
+- to vertical
+```bash
+Ctrl + w + H
+```
+
+- to horizontal
+```bash
+Ctrl + w + J
+```
+
 #### focusing  
 
 Ctrl + w + {direction}
@@ -157,5 +173,7 @@ start of line, g + ^
 - enter insert mode to after last charactor.
 ``a``
 
+- copy vim's text to outside clipboard
+``"+y``
 
 ## 2-2. Markdown Preview
