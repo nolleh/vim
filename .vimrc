@@ -18,6 +18,8 @@ set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
 set autoread " if file was modifed from extetern, read automatically
 
+set re=0 " Use new regular expression engine
+
 " set nocompatible
 " filetype plugin on
 
