@@ -23,13 +23,24 @@ set re=0 " Use new regular expression engine
 " set nocompatible
 " filetype plugin on
 
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 20
+let g:netrw_liststyle = 3 " tree style listing
+let g:netrw_banner = 0 " removes the netrw banner
+let g:netrw_browse_split = 4 " when browsing windows, using previos window 
+let g:netrw_altv = 1 " change from left splitting to right splitting
+let g:netrw_winsize = 20 " inital size of new expore windows
+
+function! s:resizeOnWinNew()
+	if (winnr('$') == 2)
+		:vertical resize 230
+	endif
+endfunction
+
 augroup ProjectDrawer
   autocmd!
   autocmd VimEnter * :Vexplore
+  autocmd WinNew * wincmd L 
+	" autocmd WinNew * :vertical resize 230
+  autocmd WinNew * call s:resizeOnWinNew()
 augroup END
+
+
