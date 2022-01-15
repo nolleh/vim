@@ -12,6 +12,7 @@ colorscheme jellybeans
 
 set ts=2 " Tab width
 set shiftwidth=2 " indentations width when automatically occurred
+set expandtab " Expand TABs to spaces
 
 set laststatus=2 " show status bar
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
@@ -30,16 +31,15 @@ let g:netrw_altv = 1 " change from left splitting to right splitting
 let g:netrw_winsize = 20 " inital size of new expore windows
 
 function! s:resizeOnWinNew()
-	if (winnr('$') == 2)
-		:vertical resize 230
-	endif
+  if (winnr('$') == 2)
+    :vertical resize 230
+  endif
 endfunction
 
 augroup ProjectDrawer
   autocmd!
   autocmd VimEnter * :Vexplore
   autocmd WinNew * wincmd L 
-	" autocmd WinNew * :vertical resize 230
   autocmd WinNew * call s:resizeOnWinNew()
 augroup END
 
