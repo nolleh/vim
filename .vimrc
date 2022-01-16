@@ -50,13 +50,18 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" code completion
 call plug#begin('~/.vim/plugged')
+" Code Completion
 Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
+" Search
+Plug 'junegunn/fzf'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
+let g:ackprg = 'ag --vimgrep'
 
 " GoTo code navication.
 nmap <silent> gd <Plug>(coc-definition)
@@ -69,3 +74,5 @@ nmap <silent> gv :vsp<CR><Plug>(coc-definition)
 nmap <silent> gt :vsp<CR><Plug>(coc-definition)<C-W>T
 
 nnoremap <leader>R :vertical resize 230
+
+
