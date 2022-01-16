@@ -36,11 +36,20 @@ function! s:resizeOnWinNew()
   endif
 endfunction
 
+function! OpenTerm()
+  :term
+  :resize20
+  :wincmd R
+  :wincmd k
+endfunction
+
 augroup ProjectDrawer
   autocmd!
   autocmd VimEnter * :Vexplore
-  autocmd WinNew * wincmd L 
-  autocmd WinNew * call s:resizeOnWinNew()
+  autocmd VimEnter * wincmd l
+"  auto VimEnter * call s:openTerm()
+"  autocmd WinNew * wincmd L 
+"  autocmd WinNew * call s:resizeOnWinNew()
 augroup END
 
 " vim plugin
@@ -73,6 +82,8 @@ nmap <silent> gs :sp<CR><Plug>(coc-definition)
 nmap <silent> gv :vsp<CR><Plug>(coc-definition)
 nmap <silent> gt :vsp<CR><Plug>(coc-definition)<C-W>T
 
-nnoremap <leader>R :vertical resize 230
-
-
+" leager : \
+nmap <silent> tt :call OpenTerm()<CR>
+nnoremap <leader>R :vertical resize 230<CR>
+map <C-l> <C-w>L
+map <C-l>R <C-w>L:vertical resize 240<CR>
