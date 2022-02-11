@@ -73,17 +73,17 @@ let g:coc_global_extensions = [ 'coc-tsserver' ]
 let g:ackprg = 'ag --vimgrep'
 
 " GoTo code navication.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> ggd <Plug>(coc-definition)
+nmap <silent> ggy <Plug>(coc-type-definition)
+nmap <silent> ggi <Plug>(coc-implementation)
+nmap <silent> ggr <Plug>(coc-references)
 
-nmap <silent> gs :sp<CR><Plug>(coc-definition)
-nmap <silent> gv :vsp<CR><Plug>(coc-definition)
-nmap <silent> gt :vsp<CR><Plug>(coc-definition)<C-W>T
+nmap <silent> ggs :sp<CR><Plug>(coc-definition)
+nmap <silent> ggv :vsp<CR><Plug>(coc-definition)
+nmap <silent> ggt :vsp<CR><Plug>(coc-definition)<C-W>T
 
 " leager : \
 nmap <silent> tt :call OpenTerm()<CR>
 nnoremap <leader>R :vertical resize 230<CR>
 map <C-l> <C-w>L
-map <C-l>R <C-w>L:vertical resize 240<CR>
+map <C-l>R <C-w>L:vertical resize 230<CR>
