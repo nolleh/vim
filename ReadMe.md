@@ -176,4 +176,27 @@ start of line, g + ^
 - copy vim's text to outside clipboard
 ``"+y``
 
-## 2-2. Markdown Preview
+## 2-2. NerdTree
+
+- go to workspace as upper directory
+``u``
+
+- go to workspace as currenct directory
+``C``
+
+- refresh
+``r``
+
+- open file with to new window 
+``i``
+
+- open file to new tabs
+``t``
+
+- browse command
+``m``
+
+- toggle showing hiddenfiles
+``shift + i``
+
+## 2-3. Markdown Preview

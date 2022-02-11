@@ -25,12 +25,18 @@ setlocal cursorline
 " set noequalalways
 " set nocompatible
 " filetype plugin on
+set encoding=UTF-8
 
 let g:netrw_liststyle = 3 " tree style listing
 let g:netrw_banner = 0 " removes the netrw banner
 let g:netrw_browse_split = 4 " when browsing windows, using previos window 
 let g:netrw_altv = 1 " change from left splitting to right splitting
 let g:netrw_winsize = 20 " inital size of new expore windows
+
+" let g:airline_theme='atomic'
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
+let g:tagbar_position = 'rightbelow'
 
 function! s:resizeOnWinNew()
   if (winnr('$') == 2)
@@ -47,7 +53,9 @@ endfunction
 
 augroup ProjectDrawer
   autocmd!
-  autocmd VimEnter * :Vexplore
+  " autocmd VimEnter * :Vexplore
+  autocmd VimEnter * :NERDTreeToggle
+  autocmd VimEnter * :TagbarToggle
   autocmd VimEnter * wincmd l
 "  auto VimEnter * call s:openTerm()
 "  autocmd WinNew * wincmd L 
@@ -91,6 +99,14 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'junegunn/fzf'
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/tagbar'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
@@ -114,3 +130,4 @@ nnoremap <leader>FR :call ResizeSplits()<CR>
 map <C-l> <C-w>L
 map <C-l>R <C-w>L:vertical resize 230<CR>
 nnoremap <leader>b :buffers<CR>:buffer<Space>
+nnoremap <silent><F1> :NERDTreeToggle<CR><bar>:TagbarToggle <CR>
