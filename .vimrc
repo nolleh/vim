@@ -21,6 +21,8 @@ set autoread " if file was modifed from extetern, read automatically
 
 set re=0 " Use new regular expression engine
 
+setlocal cursorline
+" set noequalalways
 " set nocompatible
 " filetype plugin on
 
@@ -51,6 +53,28 @@ augroup ProjectDrawer
 "  autocmd WinNew * wincmd L 
 "  autocmd WinNew * call s:resizeOnWinNew()
 augroup END
+
+augroup ReduceNoise
+  autocmd!
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinEnter * setlocal signcolumn=auto
+
+  autocmd WinLeave * setlocal nocursorline
+  autocmd WinLeave * setlocal signcolumn=no
+  " Automatically resize active split to 85 width
+  " autocmd WinEnter * :call ResizeSplits()
+augroup END
+
+function! ResizeSplits()
+  set winwidth=150
+  wincmd =
+endfunction
+
+function! LexResize()
+  wincmd t
+  :vertical resize40
+  wincmd p
+endfunction
 
 " vim plugin
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -85,5 +109,8 @@ nmap <silent> ggt :vsp<CR><Plug>(coc-definition)<C-W>T
 " leager : \
 nmap <silent> tt :call OpenTerm()<CR>
 nnoremap <leader>R :vertical resize 230<CR>
+nnoremap <leader>r :call LexResize()<CR>
+nnoremap <leader>FR :call ResizeSplits()<CR>
 map <C-l> <C-w>L
 map <C-l>R <C-w>L:vertical resize 230<CR>
+nnoremap <leader>b :buffers<CR>:buffer<Space>
