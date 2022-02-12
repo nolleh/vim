@@ -130,4 +130,4 @@ nnoremap <leader>FR :call ResizeSplits()<CR>
 map <C-l> <C-w>L
 map <C-l>R <C-w>L:vertical resize 230<CR>
 nnoremap <leader>b :buffers<CR>:buffer<Space>
-nnoremap <silent><F1> :NERDTreeToggle<CR><bar>:TagbarToggle <CR>
+nnoremap <silent><F9> :NERDTreeToggle<CR><bar>:TagbarToggle <CR>
