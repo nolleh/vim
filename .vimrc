@@ -37,6 +37,17 @@ let g:netrw_winsize = 20 " inital size of new expore windows
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline_powerline_fonts = 1
 let g:tagbar_position = 'rightbelow'
+" let g:mkdp_browser = 'Google Chrome'
+" let g:mkdp_port='1234'
+" let g:mkdp_open_ip = '127.0.0.1'
+" function g:open_browser(url) abort
+"   " open url here
+"   
+" endfunction
+" 
+" let g:mkdp_browserfunc = ''
+" let $NVIM_MKDP_LOG_FILE = $HOME . '/.tmp/mkdp-log.log'
+" let $NVIM_MKDP_LOG_LEVEL = 'debug'
 
 function! s:resizeOnWinNew()
   if (winnr('$') == 2)
@@ -107,6 +118,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/tagbar'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" If you don't have nodejs and yarn
+" use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
+" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" If you have nodejs and yarn
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
@@ -131,3 +150,4 @@ map <C-l> <C-w>L
 map <C-l>R <C-w>L:vertical resize 230<CR>
 nnoremap <leader>b :buffers<CR>:buffer<Space>
 nnoremap <silent><F9> :NERDTreeToggle<CR><bar>:TagbarToggle <CR>
+nmap <C-p> <Plug>MarkdownPreviewToggle
