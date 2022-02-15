@@ -132,3 +132,52 @@ start of line, g + ^
 ``shift + i``
 
 ## 2-3. Markdown Preview
+
+## 2-4. git difftool
+
+### command
+
+```bash 
+git difftool -y -t vimdiff
+```
+
+### shortcut 
+
+##### folder
+
+in (+, -) row, press
+
+open
+``zo``
+
+fold
+``zc``
+
+for all folder, press
+
+open
+``zr``
+
+fold
+``zm``
+
+#### go to modified
+
+next
+``]c``
+
+previos
+``[c``
+
+#### refresh
+
+``:diffupdate``
+
+#### apply left or right (put/optain)
+
+apply origin (put from remote file)
+``dp``
+
+apply local (obtain from local file)
+``do``
+
