@@ -46,8 +46,8 @@ let g:tagbar_position = 'rightbelow'
 " endfunction
 " 
 " let g:mkdp_browserfunc = ''
-" let $NVIM_MKDP_LOG_FILE = $HOME . '/.tmp/mkdp-log.log'
-" let $NVIM_MKDP_LOG_LEVEL = 'debug'
+let $NVIM_MKDP_LOG_FILE = $HOME . '/tmp/mkdp-log.log'
+let $NVIM_MKDP_LOG_LEVEL = 'debug'
 
 function! s:resizeOnWinNew()
   if (winnr('$') == 2)
@@ -67,6 +67,7 @@ augroup ProjectDrawer
   " autocmd VimEnter * :Vexplore
   autocmd VimEnter * :NERDTreeToggle
   autocmd VimEnter * :TagbarToggle
+  autocmd VimEnter * call LexResize()
   autocmd VimEnter * wincmd l
 "  auto VimEnter * call s:openTerm()
 "  autocmd WinNew * wincmd L 
@@ -92,6 +93,7 @@ endfunction
 function! LexResize()
   wincmd t
   :vertical resize40
+  :resize 40
   wincmd p
 endfunction
 
