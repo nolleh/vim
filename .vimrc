@@ -92,7 +92,7 @@ endfunction
 
 function! LexResize()
   wincmd t
-  :vertical resize40
+  :vertical resize45
   :resize 40
   wincmd p
 endfunction
