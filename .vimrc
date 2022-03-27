@@ -129,10 +129,13 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " If you have nodejs and yarn
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'airblade/vim-gitgutter'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
 let g:ackprg = 'ag --vimgrep'
+let g:prettier#autoformat = 0 
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " GoTo code navication.
 nmap <silent> ggd <Plug>(coc-definition)
