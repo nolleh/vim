@@ -46,8 +46,8 @@ let g:tagbar_position = 'rightbelow'
 " endfunction
 " 
 " let g:mkdp_browserfunc = ''
-let $NVIM_MKDP_LOG_FILE = $HOME . '/tmp/mkdp-log.log'
-let $NVIM_MKDP_LOG_LEVEL = 'debug'
+" let $NVIM_MKDP_LOG_FILE = $HOME . '/tmp/mkdp-log.log'
+" let $NVIM_MKDP_LOG_LEVEL = 'debug'
 
 function! s:resizeOnWinNew()
   if (winnr('$') == 2)
