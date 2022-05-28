@@ -49,6 +49,70 @@ let g:tagbar_position = 'rightbelow'
 " let $NVIM_MKDP_LOG_FILE = $HOME . '/tmp/mkdp-log.log'
 " let $NVIM_MKDP_LOG_LEVEL = 'debug'
 
+" vim plugin
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+" Code Completion
+Plug 'leafgarland/typescript-vim'
+Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
+
+" Search
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/tagbar'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" If you don't have nodejs and yarn
+" use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
+" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" If you have nodejs and yarn
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'airblade/vim-gitgutter'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+call plug#end()
+
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+let g:ackprg = 'ag --vimgrep'
+let g:prettier#autoformat = 0 
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+" GoTo code navication.
+nmap <silent> ggd <Plug>(coc-definition)
+nmap <silent> ggy <Plug>(coc-type-definition)
+nmap <silent> ggi <Plug>(coc-implementation)
+nmap <silent> ggr <Plug>(coc-references)
+
+nmap <silent> ggs :sp<CR><Plug>(coc-definition)
+nmap <silent> ggv :vsp<CR><Plug>(coc-definition)
+nmap <silent> ggt :vsp<CR><Plug>(coc-definition)<C-W>T
+
+" leader : \
+nmap <silent> tt :call OpenTerm()<CR>
+nnoremap <leader>R :vertical resize 230<CR>
+nnoremap <leader>r :call LexResize()<CR>
+nnoremap <leader>FR :call ResizeSplits()<CR>
+map <C-l> <C-w>L
+map <C-l>R <C-w>L:vertical resize 230<CR>
+nnoremap <leader>b :buffers<CR>:buffer<Space>
+nnoremap <silent><F9> :NERDTreeToggle<CR><bar>:TagbarToggle <CR>
+nmap <C-p> <Plug>MarkdownPreviewToggle
+nnoremap <silent> <leader>.z :ZoomToggle<CR> 
+
 function! s:resizeOnWinNew()
   if (winnr('$') == 2)
     :vertical resize 230
@@ -97,63 +161,15 @@ function! LexResize()
   wincmd p
 endfunction
 
-" vim plugin
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+  if exists('t:zoomed') && t:zoomed
+    let t:zoomed = 0
+    tabclose
+  else
+    tabedit %
+    let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
 
-call plug#begin('~/.vim/plugged')
-" Code Completion
-Plug 'leafgarland/typescript-vim'
-Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
-" Search
-Plug 'junegunn/fzf'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-Plug 'ryanoasis/vim-devicons'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'preservim/tagbar'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" If you don't have nodejs and yarn
-" use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
-" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-" If you have nodejs and yarn
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'airblade/vim-gitgutter'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-call plug#end()
-
-let g:coc_global_extensions = [ 'coc-tsserver' ]
-let g:ackprg = 'ag --vimgrep'
-let g:prettier#autoformat = 0 
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
-" GoTo code navication.
-nmap <silent> ggd <Plug>(coc-definition)
-nmap <silent> ggy <Plug>(coc-type-definition)
-nmap <silent> ggi <Plug>(coc-implementation)
-nmap <silent> ggr <Plug>(coc-references)
-
-nmap <silent> ggs :sp<CR><Plug>(coc-definition)
-nmap <silent> ggv :vsp<CR><Plug>(coc-definition)
-nmap <silent> ggt :vsp<CR><Plug>(coc-definition)<C-W>T
-
-" leager : \
-nmap <silent> tt :call OpenTerm()<CR>
-nnoremap <leader>R :vertical resize 230<CR>
-nnoremap <leader>r :call LexResize()<CR>
-nnoremap <leader>FR :call ResizeSplits()<CR>
-map <C-l> <C-w>L
-map <C-l>R <C-w>L:vertical resize 230<CR>
-nnoremap <leader>b :buffers<CR>:buffer<Space>
-nnoremap <silent><F9> :NERDTreeToggle<CR><bar>:TagbarToggle <CR>
-nmap <C-p> <Plug>MarkdownPreviewToggle
