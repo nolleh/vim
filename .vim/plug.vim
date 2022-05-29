@@ -4,7 +4,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 
 " Search
-Plug 'junegunn/fzf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -24,7 +23,7 @@ Plug 'preservim/tagbar'
 
 " If you have nodejs and yarn
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-" Plug 'nolleh/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'nolleh/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()

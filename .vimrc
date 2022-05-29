@@ -27,24 +27,16 @@ setlocal cursorline
 " filetype plugin on
 set encoding=UTF-8
 
-let g:netrw_liststyle = 3 " tree style listing
-let g:netrw_banner = 0 " removes the netrw banner
-let g:netrw_browse_split = 4 " when browsing windows, using previos window 
-let g:netrw_altv = 1 " change from left splitting to right splitting
-let g:netrw_winsize = 20 " inital size of new expore windows
-
 " let g:airline_theme='atomic'
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline_powerline_fonts = 1
 let g:tagbar_position = 'rightbelow'
-" let g:mkdp_browser = 'Google Chrome'
-" let g:mkdp_port='1234'
-" let g:mkdp_open_ip = '127.0.0.1'
-" function g:open_browser(url) abort
-"   " open url here
-"   
-" endfunction
-" 
+
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+let g:ackprg = 'ag --vimgrep'
+let g:prettier#autoformat = 0 
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
 " let g:mkdp_browserfunc = ''
 " let $NVIM_MKDP_LOG_FILE = $HOME . '/tmp/mkdp-log.log'
 " let $NVIM_MKDP_LOG_LEVEL = 'debug'
@@ -57,11 +49,6 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 source $HOME/.vim/plug.vim
-
-let g:coc_global_extensions = [ 'coc-tsserver' ]
-let g:ackprg = 'ag --vimgrep'
-let g:prettier#autoformat = 0 
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " GoTo code navication.
 nmap <silent> ggd <Plug>(coc-definition)
