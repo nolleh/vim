@@ -52,7 +52,9 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 " let $NVIM_MKDP_LOG_FILE = $HOME . '/tmp/mkdp-log.log'
 " let $NVIM_MKDP_LOG_LEVEL = 'debug'
 
-let g:vimwiki_list = [{'path': '~/vimwiki/',
+let g:vimwiki_list = [{'path': '~/Documents/workspace_github/vimwiki/private/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}, 
+                      \ {'path': '~/Documents/workspace_github/vimwiki/public/', 
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " GoTo code navication.
