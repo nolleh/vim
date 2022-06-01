@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+
 " Code Completion
 Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
@@ -7,10 +8,12 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" File Viewer
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
 Plug 'ryanoasis/vim-devicons'
+
+" Lex
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/tagbar'
@@ -26,4 +29,7 @@ Plug 'preservim/tagbar'
 Plug 'nolleh/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
