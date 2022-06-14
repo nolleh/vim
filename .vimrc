@@ -43,10 +43,11 @@ let g:tagbar_position = 'rightbelow'
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
 let g:ackprg = 'ag --vimgrep'
-let g:prettier#autoformat = 0 
+" let g:prettier#autoformat = 0 
 " let g:prettier#config#single_quote = 'true'
 " let g:prettier#config#tab_width = 4
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " let g:mkdp_browserfunc = ''
 " let $NVIM_MKDP_LOG_FILE = $HOME . '/tmp/mkdp-log.log'
