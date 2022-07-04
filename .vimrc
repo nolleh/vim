@@ -41,7 +41,8 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline_powerline_fonts = 1
 let g:tagbar_position = 'rightbelow'
 
-let g:coc_global_extensions = [ 'coc-tsserver' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-svelte' ]
+let g:vim_svelte_plugin_use_typescript = 1
 let g:ackprg = 'ag --vimgrep'
 " let g:prettier#autoformat = 0 
 " let g:prettier#config#single_quote = 'true'
