@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " Code Completion
 Plug 'leafgarland/typescript-vim'
+Plug 'leafOfTree/vim-svelte-plugin'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 
 " Search
