@@ -59,6 +59,8 @@ let g:vimwiki_list = [{'path': '~/Documents/workspace_github/vimwiki/private/',
                       \ {'path': '~/Documents/workspace_github/vimwiki/public/', 
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+
 " GoTo code navication.
 nmap <silent> ggd <Plug>(coc-definition)
 nmap <silent> ggy <Plug>(coc-type-definition)
