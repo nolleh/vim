@@ -27,6 +27,8 @@ set nocompatible
 filetype plugin on
 set encoding=UTF-8
 
+let mapleader = ","
+
 " vim plugin
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -41,7 +43,7 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline_powerline_fonts = 1
 let g:tagbar_position = 'rightbelow'
 
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-svelte' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-svelte', 'coc-pyright' ]
 let g:vim_svelte_plugin_use_typescript = 1
 let g:ackprg = 'ag --vimgrep'
 " let g:prettier#autoformat = 0 
@@ -59,17 +61,26 @@ let g:vimwiki_list = [{'path': '~/Documents/workspace_github/vimwiki/private/',
                       \ {'path': '~/Documents/workspace_github/vimwiki/public/', 
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
+let g:pipemysql_login_info = [
+    \ {
+    \   'description': '127.0.0.1',
+    \   'mysql_hostname' : '127.0.0.1',
+    \   'mysql_username' : 'root',
+    \ }
+  \ ]
+
+
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 " GoTo code navication.
-nmap <silent> ggd <Plug>(coc-definition)
-nmap <silent> ggy <Plug>(coc-type-definition)
-nmap <silent> ggi <Plug>(coc-implementation)
-nmap <silent> ggr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-nmap <silent> ggs :sp<CR><Plug>(coc-definition)
-nmap <silent> ggv :vsp<CR><Plug>(coc-definition)
-nmap <silent> ggt :vsp<CR><Plug>(coc-definition)<C-W>T
+nmap <silent> gs :sp<CR><Plug>(coc-definition)
+nmap <silent> gv :vsp<CR><Plug>(coc-definition)
+nmap <silent> gt :vsp<CR><Plug>(coc-definition)<C-W>T
 
 " leader : \
 nmap <silent> tt :call OpenTerm()<CR>
@@ -143,3 +154,4 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 
+" au BufRead,BufNewFile *.sql set filetype=mysql

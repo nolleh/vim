@@ -33,4 +33,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'NLKNguyen/pipe.vim' "required
+Plug 'NLKNguyen/pipe-mysql.vim'
+
 call plug#end()
