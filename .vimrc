@@ -3,13 +3,13 @@ if has("syntax")
     syntax on
 endif
 
+set backspace=indent,eol,start  " more powerful backspacing
 set autoindent
 set cindent
 
 set nu
 
 colorscheme jellybeans
-
 set ts=2 " Tab width
 set shiftwidth=2 " indentations width when automatically occurred
 set expandtab " Expand TABs to spaces
@@ -69,9 +69,7 @@ let g:pipemysql_login_info = [
     \ }
   \ ]
 
-let g:colorizer_auto_color = 1
-
-filetype plugin indent on
+let g:pipemysql_pager = 'grcat ~/.grcat'
 
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
@@ -98,6 +96,7 @@ augroup ProjectDrawer
 "  auto VimEnter * call s:openTerm()
 "  autocmd WinNew * wincmd L 
 "  autocmd WinNew * call s:resizeOnWinNew()
+"  autocmd WinNew * :ColorHighlight
 augroup END
 
 augroup ReduceNoise
@@ -110,15 +109,6 @@ augroup ReduceNoise
   " Automatically resize active split to 85 width
   " autocmd WinEnter * :call ResizeSplits()
 augroup END
-
-augroup autoColorize
-  autocmd!
-    autocmd
-          \ BufNewFile,BufRead,BufEnter,BufLeave,WinEnter,WinLeave,WinNew
-          \ *.js,*.css,*.scss,*.sass
-          \ ColorHighlight
-augroup END
-autocmd FileType * :ColorHighlight
 
 function! ResizeSplits()
   set winwidth=150
@@ -148,7 +138,6 @@ fun! s:PvwResize(n)
   for nr in range(1, winnr('$'))
     if getwinvar(nr, "&pvw") == 1
       " found a preview
-      echom a:n
       wincmd p
       if a:n > 0
         " not work for a:n. why..?
@@ -165,7 +154,7 @@ command! PvwB call s:PvwResize(10)
 command! PvwS call s:PvwResize(-10)
 " au BufRead,BufNewFile *.sql set filetype=mysql
 
-""" Mapping
+" Mapping: {{{
 
 " GoTo code navication.
 nmap <silent> gd <Plug>(coc-definition)
@@ -192,3 +181,6 @@ nnoremap <silent> <leader>.z :ZoomToggle<CR>
 nnoremap <leader>p+ :PvwB<CR>
 nnoremap <leader>p- :PvwS<CR>
 
+nnoremap <leader>cr :ColorHighlight<CR>
+
+" }}}

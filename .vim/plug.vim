@@ -34,9 +34,8 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'vimwiki/vimwiki'
 
 Plug 'NLKNguyen/pipe.vim' "required
-Plug 'NLKNguyen/pipe-mysql.vim'
-
-Plug 'vim-scripts/AnsiEsc.vim'
+"Plug 'NLKNguyen/pipe-mysql.vim'
+Plug 'nolleh/pipe-mysql.vim'
 Plug 'chrisbra/Colorizer'
 
 call plug#end()
