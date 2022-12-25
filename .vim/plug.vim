@@ -36,4 +36,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'NLKNguyen/pipe.vim' "required
 Plug 'NLKNguyen/pipe-mysql.vim'
 
+Plug 'vim-scripts/AnsiEsc.vim'
+Plug 'chrisbra/Colorizer'
+
 call plug#end()

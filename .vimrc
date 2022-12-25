@@ -69,30 +69,11 @@ let g:pipemysql_login_info = [
     \ }
   \ ]
 
+let g:colorizer_auto_color = 1
+
+filetype plugin indent on
 
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-
-" GoTo code navication.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-nmap <silent> gs :sp<CR><Plug>(coc-definition)
-nmap <silent> gv :vsp<CR><Plug>(coc-definition)
-nmap <silent> gt :vsp<CR><Plug>(coc-definition)<C-W>T
-
-" leader : \
-nmap <silent> tt :call OpenTerm()<CR>
-nnoremap <leader>R :vertical resize 230<CR>
-nnoremap <leader>r :call LexResize()<CR>
-nnoremap <leader>FR :call ResizeSplits()<CR>
-map <C-l> <C-w>L
-map <C-l>R <C-w>L:vertical resize 230<CR>
-nnoremap <leader>b :buffers<CR>:buffer<Space>
-nnoremap <silent><F9> :NERDTreeToggle<CR><bar>:TagbarToggle <CR>
-nmap <C-p> <Plug>MarkdownPreviewToggle
-nnoremap <silent> <leader>.z :ZoomToggle<CR> 
 
 function! s:resizeOnWinNew()
   if (winnr('$') == 2)
@@ -130,6 +111,15 @@ augroup ReduceNoise
   " autocmd WinEnter * :call ResizeSplits()
 augroup END
 
+augroup autoColorize
+  autocmd!
+    autocmd
+          \ BufNewFile,BufRead,BufEnter,BufLeave,WinEnter,WinLeave,WinNew
+          \ *.js,*.css,*.scss,*.sass
+          \ ColorHighlight
+augroup END
+autocmd FileType * :ColorHighlight
+
 function! ResizeSplits()
   set winwidth=150
   wincmd =
@@ -150,8 +140,55 @@ function! s:ZoomToggle() abort
   else
     tabedit %
     let t:zoomed = 1
-    endif
+  endif
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 
+fun! s:PvwResize(n)
+  for nr in range(1, winnr('$'))
+    if getwinvar(nr, "&pvw") == 1
+      " found a preview
+      echom a:n
+      wincmd p
+      if a:n > 0
+        " not work for a:n. why..?
+        " :resize +a:n
+        :resize +10
+      else
+        :resize -10
+      endif
+      wincmd p
+    endif
+  endfor
+endfun
+command! PvwB call s:PvwResize(10)
+command! PvwS call s:PvwResize(-10)
 " au BufRead,BufNewFile *.sql set filetype=mysql
+
+""" Mapping
+
+" GoTo code navication.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> gs :sp<CR><Plug>(coc-definition)
+nmap <silent> gv :vsp<CR><Plug>(coc-definition)
+nmap <silent> gt :vsp<CR><Plug>(coc-definition)<C-W>T
+
+" leader : \
+nmap <silent> tt :call OpenTerm()<CR>
+nnoremap <leader>R :vertical resize 230<CR>
+nnoremap <leader>r :call LexResize()<CR>
+nnoremap <leader>FR :call ResizeSplits()<CR>
+map <C-l> <C-w>L
+map <C-l>R <C-w>L:vertical resize 230<CR>
+nnoremap <leader>b :buffers<CR>:buffer<Space>
+nnoremap <silent><F9> :NERDTreeToggle<CR><bar>:TagbarToggle <CR>
+nmap <C-p> <Plug>MarkdownPreviewToggle
+nnoremap <silent> <leader>.z :ZoomToggle<CR> 
+
+nnoremap <leader>p+ :PvwB<CR>
+nnoremap <leader>p- :PvwS<CR>
+
