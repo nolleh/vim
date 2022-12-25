@@ -154,6 +154,26 @@ command! PvwB call s:PvwResize(10)
 command! PvwS call s:PvwResize(-10)
 " au BufRead,BufNewFile *.sql set filetype=mysql
 
+fun! s:TogglePager()
+  if !exists('g:pipemysql_pager') && !exists('t:pager_str') 
+    echom 'nothing to do'
+    return
+  endif
+
+  if !exists('t:pager_str')
+    let t:pager_str = g:pipemysql_pager
+  endif
+  
+  if exists('g:pipemysql_pager')
+    unlet g:pipemysql_pager
+    echom 'pager off'
+  else
+    echom 'pager on'
+    let g:pipemysql_pager = t:pager_str
+  endif
+endfun
+command! TogglePager call s:TogglePager()
+
 " Mapping: {{{
 
 " GoTo code navication.
@@ -182,5 +202,5 @@ nnoremap <leader>p+ :PvwB<CR>
 nnoremap <leader>p- :PvwS<CR>
 
 nnoremap <leader>cr :ColorHighlight<CR>
-
+nnoremap <silent> tpg :TogglePager<CR>
 " }}}
