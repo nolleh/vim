@@ -66,6 +66,7 @@ let g:pipemysql_login_info = [
     \   'description': '127.0.0.1',
     \   'mysql_hostname' : '127.0.0.1',
     \   'mysql_username' : 'root',
+    \   'mysql_password' : 'cindy-is-awesome',
     \ }
   \ ]
 
@@ -138,7 +139,7 @@ fun! s:PvwResize(n)
   for nr in range(1, winnr('$'))
     if getwinvar(nr, "&pvw") == 1
       " found a preview
-      wincmd p
+      wincmd P
       if a:n > 0
         " not work for a:n. why..?
         " :resize +a:n
