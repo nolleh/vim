@@ -44,8 +44,10 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline_powerline_fonts = 1
 let g:tagbar_position = 'rightbelow'
 
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-svelte', 'coc-pyright' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-svelte', 'coc-pyright', 'coc-css' ]
 let g:vim_svelte_plugin_use_typescript = 1
+
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 let g:ackprg = 'ag --vimgrep'
 " let g:prettier#autoformat = 0 
 " let g:prettier#config#single_quote = 'true'
@@ -73,7 +75,7 @@ let g:pipemysql_login_info = [
 let g:pipemysql_option = '-vvv'
 let g:pipemysql_pager = 'grcat ~/.grcat | less -n -i -S'
 
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+autocmd FileType css setl iskeyword+=-
 
 function! s:resizeOnWinNew()
   if (winnr('$') == 2)
@@ -176,6 +178,23 @@ fun! s:TogglePager()
 endfun
 command! TogglePager call s:TogglePager()
 
+fun! ShowInPreview(name, fileType, lines)
+    let l:command = "silent! botright pedit! +setlocal\\ " .
+                  \ "buftype=nofile\\ nobuflisted\\ " .
+                  \ "noswapfile\\ nonumber\\ " .
+                  \ "filetype=" . a:fileType . " " . a:name
+
+    exe l:command
+
+    if has('nvim')
+        let l:bufNr = bufnr(a:name)
+        call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines)
+    else
+        call setbufline(a:name, 1, a:lines)
+    endif
+endfun
+" command! ShowInPreview call s:showInPreview
+
 " Mapping: {{{
 
 " GoTo code navication.
@@ -204,5 +223,7 @@ nnoremap <leader>p+ :PvwB<CR>
 nnoremap <leader>p- :PvwS<CR>
 
 nnoremap <leader>cr :ColorHighlight<CR>
-nnoremap <silent> tpg :TogglePager<CR>
+nnoremap <silent>tpg :TogglePager<CR>
+vnoremap <leader>__ :call ShowInPreview('text-preview', 'text', 'this-is-test')<CR>
+" vnoremap <leader>__ :call Pipe('ls --color -l')<CR>
 " }}}

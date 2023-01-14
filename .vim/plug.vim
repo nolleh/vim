@@ -39,4 +39,6 @@ Plug 'NLKNguyen/pipe.vim' "required
 Plug 'nolleh/pipe-mysql.vim'
 Plug 'chrisbra/Colorizer'
 
+Plug 'ap/vim-css-color'
+
 call plug#end()
