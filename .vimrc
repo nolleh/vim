@@ -75,9 +75,18 @@ let g:pipemysql_login_info = [
 let g:pipemysql_option = '-vvv'
 let g:pipemysql_pager = 'grcat ~/.grcat | less -n -i -S'
 
-let g:quickrun_config = {}
+" QuickRun: {{{"
+let g:quickrun_config = { 
+    \"_": {
+    \  "hook/time/enable": 1,
+    \  "outputter/buffer/close_on_empty": 1,
+    \  "outputter/buffer/split" : ":botright 8sp"
+    \  }
+    \}
+
 let g:quickrun_config.html = { 'command' : 'open' }
 let g:quickrun_config.python = { 'command' : 'python3' }
+"}}} "
 
 autocmd FileType css setl iskeyword+=-
 
@@ -232,4 +241,5 @@ nnoremap <silent>tpg :TogglePager<CR>
 " vnoremap <leader>__ :call Pipe('ls --color -l')<CR>
 
 nnoremap <leader><leader>r :QuickRun<CR>
+vnoremap <leader><leader>r :QuickRun<CR>
 " }}}
