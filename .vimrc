@@ -75,6 +75,10 @@ let g:pipemysql_login_info = [
 let g:pipemysql_option = '-vvv'
 let g:pipemysql_pager = 'grcat ~/.grcat | less -n -i -S'
 
+let g:quickrun_config = {}
+let g:quickrun_config.html = { 'command' : 'open' }
+let g:quickrun_config.python = { 'command' : 'python3' }
+
 autocmd FileType css setl iskeyword+=-
 
 function! s:resizeOnWinNew()
@@ -224,6 +228,8 @@ nnoremap <leader>p- :PvwS<CR>
 
 nnoremap <leader>cr :ColorHighlight<CR>
 nnoremap <silent>tpg :TogglePager<CR>
-vnoremap <leader>__ :call ShowInPreview('text-preview', 'text', 'this-is-test')<CR>
+" vnoremap <leader>__ :call ShowInPreview('text-preview', 'text', 'this-is-test')<CR>
 " vnoremap <leader>__ :call Pipe('ls --color -l')<CR>
+
+nnoremap <leader><leader>r :QuickRun<CR>
 " }}}

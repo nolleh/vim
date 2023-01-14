@@ -40,5 +40,6 @@ Plug 'nolleh/pipe-mysql.vim'
 Plug 'chrisbra/Colorizer'
 
 Plug 'ap/vim-css-color'
+Plug 'thinca/vim-quickrun'
 
 call plug#end()
