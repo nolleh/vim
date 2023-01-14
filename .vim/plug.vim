@@ -3,7 +3,8 @@ call plug#begin('~/.vim/plugged')
 " Code Completion
 Plug 'leafgarland/typescript-vim'
 Plug 'leafOfTree/vim-svelte-plugin'
-Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
+" latest tag on branch
+Plug 'neoclide/coc.nvim' , { 'tag': '*', 'branch' : 'release' }
 
 " Search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -26,8 +27,8 @@ Plug 'preservim/tagbar'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " If you have nodejs and yarn
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'nolleh/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" Plug 'nolleh/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 

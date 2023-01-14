@@ -20,6 +20,7 @@ set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 set autoread " if file was modifed from extetern, read automatically
 
 set re=0 " Use new regular expression engine
+set previewheight=20
 
 setlocal cursorline
 " set noequalalways
@@ -65,12 +66,12 @@ let g:pipemysql_login_info = [
     \ {
     \   'description': '127.0.0.1',
     \   'mysql_hostname' : '127.0.0.1',
-    \   'mysql_username' : 'root',
-    \   'mysql_password' : 'cindy-is-awesome',
+    \   'mysql_username' : 'root'
     \ }
   \ ]
 
-let g:pipemysql_pager = 'grcat ~/.grcat'
+let g:pipemysql_option = '-vvv'
+let g:pipemysql_pager = 'grcat ~/.grcat | less -n -i -S'
 
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
