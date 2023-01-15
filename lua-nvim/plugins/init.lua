@@ -1,11 +1,11 @@
 return {
-  ["nvim-tree/nvim-tree-lua"] = {
-    override_options = {
-      renderer = {
-        highlight_git = true
-      }
-    }
-  },
+  --["nvim-tree/nvim-tree-lua"] = {
+  --  override_options = {
+  --    renderer = {
+  --      highlight_git = true
+  --    }
+  --  }
+  --},
 
   ["neovim/nvim-lspconfig"] = {
     config = function()
@@ -24,6 +24,7 @@ return {
         -- web dev
         "css-lsp",
         "html-lsp",
+        "svelte-language-server",
         "typescript-language-server",
         "deno",
         "json-lsp",

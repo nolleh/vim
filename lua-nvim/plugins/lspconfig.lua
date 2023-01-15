@@ -8,7 +8,8 @@ local servers = {
   "html",
   "cssls",
   "tsserver",
-  "pyright"
+  "pyright",
+  "svelte",
 }
 
 local opts = { noremap=true, silent=true }
