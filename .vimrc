@@ -27,6 +27,8 @@ setlocal cursorline
 set nocompatible
 filetype plugin on
 set encoding=UTF-8
+set foldmethod=syntax
+" set foldmethod=indent
 
 let mapleader = ","
 
@@ -103,6 +105,7 @@ function! OpenTerm()
   :wincmd k
 endfunction
 
+" Augroup: {{{
 augroup ProjectDrawer
   autocmd!
   " autocmd VimEnter * :Vexplore
@@ -126,6 +129,14 @@ augroup ReduceNoise
   " Automatically resize active split to 85 width
   " autocmd WinEnter * :call ResizeSplits()
 augroup END
+
+" Useful for my Quick Notes feature in my tmuxrc
+augroup QuickNotes
+  au BufWrite,VimLeave ?* silent! mkview
+  au BufRead           ?* silent! loadview
+augroup END
+
+" }}}
 
 function! ResizeSplits()
   set winwidth=150
