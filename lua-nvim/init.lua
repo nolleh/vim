@@ -23,6 +23,16 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.tagbar_position = "rightbelow"
 vim.g.mapleader = ","
+vim.g.pipemysql_login_info = {
+  {
+    description = "127.0.0.1",
+    mysql_username = "root"
+  }
+}
+
+vim.g.pipemysql_option = "-vvv"
+vim.g.pipemysql_pager = "more -1"
+
 -- vim.g.quickrun_config.html = { command = "open"}
 -- vim.g.quickrun_config.python = { command = "python3"}
 
@@ -69,8 +79,14 @@ autocmd("VimEnter", {
   group = project_drawer
 })
 
+autocmd(
+  "BufRead,BufNewFile", {
+  pattern = "*.sql",
+  command = "set filetype=mysql"
+})
+
 --- }}}
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
   ensure_installed = { "svelte" },
-}
+})

@@ -50,6 +50,7 @@ return {
   ["vimwiki/vimwiki"] = {},
   ["NLKNguyen/pipe.vim"] = {},
   ["NLKNguyen/pipe-mysql.vim"] = {},
+  ["chrisbra/Colorizer"] = {},
   --  {{ do yarn install
   ["prettier/vim-prettier"] = {},
   ["iamcco/markdown-preview.nvim"] = {},
