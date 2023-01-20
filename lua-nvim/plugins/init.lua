@@ -6,6 +6,14 @@ return {
   --    }
   --  }
   --},
+  --
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = {
+      configs = {
+        ensure_installed = { "svelte", "typescript", "python", "vim" }
+      }
+    },
+  },
 
   ["neovim/nvim-lspconfig"] = {
     config = function()
@@ -46,11 +54,19 @@ return {
   --},
 
   ["thinca/vim-quickrun"] = {},
-  ["is0n/jaq-nvim"] = {},
+  ["is0n/jaq-nvim"] = {
+    override_options = {
+      external = {
+        markdown = "glow %",
+        python = "python3 %",
+      },
+    },
+  },
   ["vimwiki/vimwiki"] = {},
   ["NLKNguyen/pipe.vim"] = {},
   ["NLKNguyen/pipe-mysql.vim"] = {},
   ["chrisbra/Colorizer"] = {},
+  -- ["powerman/vim-plugin-AnsiEsc"] = {},
   --  {{ do yarn install
   ["prettier/vim-prettier"] = {},
   ["iamcco/markdown-preview.nvim"] = {},

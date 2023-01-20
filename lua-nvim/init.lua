@@ -1,4 +1,4 @@
-
+-- https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/
 -- add command, options, autocmds here
 
 -- Variables: {{{
@@ -31,7 +31,7 @@ vim.g.pipemysql_login_info = {
 }
 
 vim.g.pipemysql_option = "-vvv"
-vim.g.pipemysql_pager = "more -1"
+-- vim.g.pipemysql_pager = "grcat ~/.grcat"
 
 -- vim.g.quickrun_config.html = { command = "open"}
 -- vim.g.quickrun_config.python = { command = "python3"}
@@ -54,12 +54,9 @@ vim.g.vimwiki_list = {
   }
 }
 
-require("jaq-nvim").setup({
-  external = {
-    markdown = "glow %",
-    python = "python3 %"
-  }
-})
+-- vim.g.colorizer_auto_color = 1
+-- vim.g.colorizer_auto_filetype="*"
+-- vim.g.colorizer_disable_bufleave = 1
 
 -- Augroups: {{{
 local augroup = vim.api.nvim_create_augroup
@@ -79,14 +76,27 @@ autocmd("VimEnter", {
   group = project_drawer
 })
 
-autocmd(
-  "BufRead,BufNewFile", {
+autocmd("BufRead,BufNewFile", {
   pattern = "*.sql",
   command = "set filetype=mysql"
 })
 
---- }}}
-require("nvim-treesitter.configs").setup({
-  -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "svelte" },
-})
+vim.api.nvim_create_user_command('ReloadConfig', 'source %', {})
+
+local zoomed = false
+function ZoomToggle()
+  if zoomed then
+    vim.cmd(":tab close")
+    zoomed = false
+  else
+    vim.cmd(":tab split")
+    zoomed = true
+  end
+end
+
+vim.api.nvim_create_user_command(
+  "ZoomToggle",
+  ZoomToggle,
+  {}
+)
+
