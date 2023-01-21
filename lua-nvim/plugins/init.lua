@@ -7,13 +7,6 @@ return {
   --  }
   --},
   --
-  ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = {
-      configs = {
-        ensure_installed = { "svelte", "typescript", "python", "vim" }
-      }
-    },
-  },
 
   ["neovim/nvim-lspconfig"] = {
     config = function()
@@ -71,4 +64,9 @@ return {
   ["prettier/vim-prettier"] = {},
   ["iamcco/markdown-preview.nvim"] = {},
   -- }}
+
+  -- require "nvim-treesitter.configs".setup {
+  --   -- A list of parser names, or "all"
+  --   ensure_installed = { "css", "html", "svelte", "typescript", "python", "vim", "bash", "sql" }
+  -- }
 }

@@ -36,10 +36,6 @@ vim.g.pipemysql_option = "-vvv"
 -- vim.g.quickrun_config.html = { command = "open"}
 -- vim.g.quickrun_config.python = { command = "python3"}
 
---vim.api.nvim_command([[ 
---  let g:quickrun_config.html = { "command" : "open" }
---  let g:quickrun_config.python = { "command" : "python3" }
---]])
 
 vim.g.vimwiki_list = {
   {
@@ -62,18 +58,18 @@ vim.g.vimwiki_list = {
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-local project_drawer = augroup("ProjectDrawer", {})
+local projectDrawer = augroup("ProjectDrawer", {})
 
 autocmd("VimEnter", {
   pattern = "*",
   command = ":NvimTreeToggle",
-  group = project_drawer
+  group = projectDrawer
 })
 
 autocmd("VimEnter", {
   pattern = "*",
   command = ":wincmd l",
-  group = project_drawer
+  group = projectDrawer
 })
 
 autocmd("BufRead,BufNewFile", {
@@ -81,7 +77,7 @@ autocmd("BufRead,BufNewFile", {
   command = "set filetype=mysql"
 })
 
-vim.api.nvim_create_user_command('ReloadConfig', 'source %', {})
+vim.api.nvim_create_user_command("ReloadConfig", "source %", {})
 
 local zoomed = false
 function ZoomToggle()
@@ -99,4 +95,16 @@ vim.api.nvim_create_user_command(
   ZoomToggle,
   {}
 )
+
+vim.cmd([["
+  let g:quickrun_config = { 
+    \"_": {
+    \  "hook/time/enable": 1,
+    \  "outputter/buffer/close_on_empty": 1,
+    \  "outputter/buffer/split" : ":botright 8sp"
+    \  }
+    \}
+  let g:quickrun_config.html = { "command" : "open" }
+  let g:quickrun_config.python = { "command" : "python3" }
+"]])
 
