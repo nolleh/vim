@@ -7,10 +7,15 @@ return {
   --  }
   --},
   --
+  ["nvim-treesitter/nvim-treesitter"] = {
+    configs = function()
+      require "custom.plugins.config"
+    end,
+  },
 
   ["neovim/nvim-lspconfig"] = {
     config = function()
-      require "plugins.configs.lspconfig"
+      --require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
     end,
   },
@@ -34,39 +39,29 @@ return {
         "shfmt",
         "shellcheck",
         --
-        "python-lsp-server",
+        "pyright",
       },
     },
   },
 
-  --["jose-elias-alvarez/null-ls.nvim"] = {
-  --  after = "nvim-lspconfig",
-  --  config = function()
-  --     require "custom.plugins.null-ls"
-  --  end,
-  --},
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require "custom.plugins.null-ls"
+    end,
+  },
 
   ["thinca/vim-quickrun"] = {},
   ["is0n/jaq-nvim"] = {
-    override_options = {
-      external = {
-        markdown = "glow %",
-        python = "python3 %",
-      },
-    },
+    config = function()
+      require "custom.plugins.config"
+    end,
   },
   ["vimwiki/vimwiki"] = {},
   ["NLKNguyen/pipe.vim"] = {},
   ["NLKNguyen/pipe-mysql.vim"] = {},
   ["chrisbra/Colorizer"] = {},
-  -- ["powerman/vim-plugin-AnsiEsc"] = {},
   --  {{ do yarn install
-  ["prettier/vim-prettier"] = {},
   ["iamcco/markdown-preview.nvim"] = {},
   -- }}
-
-  -- require "nvim-treesitter.configs".setup {
-  --   -- A list of parser names, or "all"
-  --   ensure_installed = { "css", "html", "svelte", "typescript", "python", "vim", "bash", "sql" }
-  -- }
 }
