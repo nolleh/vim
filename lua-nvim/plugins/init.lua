@@ -1,3 +1,4 @@
+-- return {}
 return {
   --["nvim-tree/nvim-tree-lua"] = {
   --  override_options = {
@@ -15,7 +16,7 @@ return {
 
   ["neovim/nvim-lspconfig"] = {
     config = function()
-      --require "plugins.configs.lspconfig"
+      require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
     end,
   },
@@ -51,7 +52,6 @@ return {
     end,
   },
 
-  ["thinca/vim-quickrun"] = {},
   ["is0n/jaq-nvim"] = {
     config = function()
       require "custom.plugins.config"
@@ -60,8 +60,8 @@ return {
   ["vimwiki/vimwiki"] = {},
   ["NLKNguyen/pipe.vim"] = {},
   ["NLKNguyen/pipe-mysql.vim"] = {},
-  ["chrisbra/Colorizer"] = {},
-  --  {{ do yarn install
+  --   ["chrisbra/Colorizer"] = {},
+  --   --  {{ do yarn install
   ["iamcco/markdown-preview.nvim"] = {},
-  -- }}
+  --   -- }}
 }
