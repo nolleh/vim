@@ -1,4 +1,4 @@
-require "nvim-treesitter.configs".setup {
+require("nvim-treesitter.configs").setup {
   -- A list of parser names or "all"
   ensure_installed = {
     "css",
@@ -8,8 +8,8 @@ require "nvim-treesitter.configs".setup {
     "python",
     "vim",
     "bash",
-    "sql"
-  }
+    "sql",
+  },
 }
 
 -- require "williamboman/mason.nvim".setup {
@@ -17,7 +17,7 @@ require "nvim-treesitter.configs".setup {
 --     -- lua stuff
 --     "lua-language-server",
 --     "stylua",
--- 
+--
 --     -- web dev
 --     "css-lsp",
 --     "html-lsp",
@@ -25,7 +25,7 @@ require "nvim-treesitter.configs".setup {
 --     "typescript-language-server",
 --     "deno",
 --     "json-lsp",
--- 
+--
 --     -- shell
 --     "shfmt",
 --     "shellcheck",
@@ -33,5 +33,5 @@ require "nvim-treesitter.configs".setup {
 --     "pyright",
 --   },
 -- }
--- 
+--
 --
