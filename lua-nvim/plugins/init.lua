@@ -63,5 +63,7 @@ return {
   --   ["chrisbra/Colorizer"] = {},
   --   --  {{ do yarn install
   ["iamcco/markdown-preview.nvim"] = {},
+
+  --["davidhalter/jedi-vim"] = {},
   --   -- }}
 }

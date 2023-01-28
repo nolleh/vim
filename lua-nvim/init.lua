@@ -3,6 +3,8 @@
 
 -- Variables: {{{
 
+-- vim.g.python3_host_prog = "${PYENV_ROOT}/versions/neovim/bin/python"
+
 vim.opt.mouse = "a"
 vim.opt.autoindent = true
 
