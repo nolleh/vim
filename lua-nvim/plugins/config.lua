@@ -44,7 +44,7 @@ require("jaq-nvim").setup {
 
     -- Uses shell commands
     external = {
-      -- vimwiki  = "glow %",
+      vimwiki  = "glow %",
       markdown = "glow %",
       python   = "python3 %",
       go       = "go run %",
