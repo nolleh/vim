@@ -35,9 +35,6 @@ vim.g.pipemysql_login_info = {
 vim.g.pipemysql_option = "-vvv"
 -- vim.g.pipemysql_pager = "grcat ~/.grcat"
 
--- vim.g.quickrun_config.html = { command = "open"}
--- vim.g.quickrun_config.python = { command = "python3"}
-
 vim.g.vimwiki_list = {
   {
     path = "~/Documents/workspace_github/vimwiki/private/",
@@ -97,15 +94,3 @@ function ZoomToggle()
 end
 
 vim.api.nvim_create_user_command("ZoomToggle", ZoomToggle, {})
-
-vim.cmd [["
-  let g:quickrun_config = { 
-    \"_": {
-    \  "hook/time/enable": 1,
-    \  "outputter/buffer/close_on_empty": 1,
-    \  "outputter/buffer/split" : ":botright 8sp"
-    \  }
-    \}
-  let g:quickrun_config.html = { "command" : "open" }
-  let g:quickrun_config.python = { "command" : "python3" }
-"]]

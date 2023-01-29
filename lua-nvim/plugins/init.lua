@@ -65,10 +65,8 @@ return {
   ["vimwiki/vimwiki"] = {},
   ["NLKNguyen/pipe.vim"] = {},
   ["NLKNguyen/pipe-mysql.vim"] = {},
-  --   ["chrisbra/Colorizer"] = {},
-  --   --  {{ do yarn install
+  -- ["chrisbra/Colorizer"] = {},
+  -- {{ do yarn install
   ["iamcco/markdown-preview.nvim"] = {},
-
-  --["davidhalter/jedi-vim"] = {},
-  --   -- }}
+  -- }}
 }
