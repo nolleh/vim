@@ -1,13 +1,18 @@
 -- return {}
 return {
-  --["nvim-tree/nvim-tree-lua"] = {
-  --  override_options = {
-  --    renderer = {
-  --      highlight_git = true
-  --    }
-  --  }
-  --},
-  --
+  ["nvim-tree/nvim-tree.lua"] = {
+    override_options = {
+      renderer = {
+        highlight_git = true,
+      },
+      view = {
+        width = {
+          max = 40,
+        },
+      },
+    },
+  },
+
   ["nvim-treesitter/nvim-treesitter"] = {
     configs = function()
       require "custom.plugins.config"
