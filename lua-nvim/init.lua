@@ -17,6 +17,13 @@ set.expandtab = true
 --set.foldmethod = syntax
 --vim.g.autosave = true
 
+-- vimwiki
+vim.cmd [[
+  set nocompatible
+  filetype plugin on
+  syntax on
+]]
+
 -- }}}
 
 -- Plugin configurations: {{{
@@ -38,13 +45,9 @@ vim.g.pipemysql_option = "-vvv"
 vim.g.vimwiki_list = {
   {
     path = "~/Documents/workspace_github/vimwiki/private/",
-    syntax = "markdown",
-    ext = ".md",
   },
   {
     path = "~/Documents/workspace_github/vimwiki/public",
-    syntax = "markdown",
-    ext = ".md",
   },
 }
 
@@ -73,11 +76,6 @@ autocmd("VimEnter", {
 autocmd("BufRead,BufNewFile", {
   pattern = "*.sql",
   command = "set filetype=mysql",
-})
-
-autocmd("BufRead,BufNewFile", {
-  pattern = "*.md",
-  command = "set filetype=markdown",
 })
 
 vim.api.nvim_create_user_command("ReloadConfig", "source %", {})

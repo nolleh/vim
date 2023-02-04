@@ -12,8 +12,6 @@ local sources = {
   b.formatting.shfmt,
   b.formatting.black,
 
-  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
-
   b.formatting.prettier.with {
     filetypes = {
       "javascript",
@@ -30,6 +28,9 @@ local sources = {
       "txt",
     },
   },
+
+  b.diagnostics.tsc,
+  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 }
 
 --vim.api.nvim_create_autocmd("BufWritePost", {
