@@ -23,6 +23,7 @@ vim.cmd [[
   filetype plugin on
   syntax on
 ]]
+vim.g.vimwiki_ext2syntax = vim.empty_dict()
 
 -- }}}
 
