@@ -55,10 +55,10 @@ vim.g.vimwiki_list = {
 -- vim.g.colorizer_auto_filetype="*"
 -- vim.g.colorizer_disable_bufleave = 1
 
-vim.cmd([[
-hi MinimapCurrentLine ctermfg=Green guifg=#50FA7B guibg=#32302f
-let g:minimap_cursor_color = 'MinimapCurrentLine'
-]])
+vim.cmd [[
+  hi MinimapCurrentLine ctermfg=Green guifg=#50FA7B guibg=#32302f
+  let g:minimap_cursor_color = 'MinimapCurrentLine'
+]]
 
 -- Augroups: {{{
 local augroup = vim.api.nvim_create_augroup
