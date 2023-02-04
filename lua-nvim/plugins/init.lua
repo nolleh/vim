@@ -65,6 +65,7 @@ return {
   ["vimwiki/vimwiki"] = {},
   ["NLKNguyen/pipe.vim"] = {},
   ["NLKNguyen/pipe-mysql.vim"] = {},
+  ["wfxr/minimap.vim"] = {},
   -- ["chrisbra/Colorizer"] = {},
   -- {{ do yarn install
   ["iamcco/markdown-preview.nvim"] = {},
