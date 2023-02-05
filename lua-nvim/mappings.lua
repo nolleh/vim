@@ -16,6 +16,8 @@ M.general = {
       ":split | lua vim.lsp.buf.definition()<CR>",
       "split lsp definition",
     },
+
+    ["<leader>ax"] = { ":%bd | e# | bd# | :NvimTreeToggle<CR>", "close all buf but current" },
   },
   v = {
     ["<leader><leader>r"] = { ":Jaq<CR>" },

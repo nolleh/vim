@@ -45,10 +45,10 @@ vim.g.pipemysql_option = "-vvv"
 
 vim.g.vimwiki_list = {
   {
-    path = "~/Documents/workspace_github/vimwiki/private/",
+    path = "~/Documents/workspace_github/vwiki/private",
   },
   {
-    path = "~/Documents/workspace_github/vimwiki/public",
+    path = "~/Documents/workspace_github/vwiki/public",
   },
 }
 
