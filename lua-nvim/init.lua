@@ -18,11 +18,11 @@ set.expandtab = true
 --vim.g.autosave = true
 
 -- vimwiki
-vim.cmd [[
+vim.cmd([[
   set nocompatible
   filetype plugin on
   syntax on
-]]
+]])
 vim.g.vimwiki_ext2syntax = vim.empty_dict()
 
 -- }}}
@@ -34,32 +34,32 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.tagbar_position = "rightbelow"
 --vim.g.mapleader = ","
 vim.g.pipemysql_login_info = {
-  {
-    description = "127.0.0.1",
-    mysql_username = "root",
-  },
+	{
+		description = "127.0.0.1",
+		mysql_username = "root",
+	},
 }
 
 vim.g.pipemysql_option = "-vvv"
 -- vim.g.pipemysql_pager = "grcat ~/.grcat"
 
 vim.g.vimwiki_list = {
-  {
-    path = "~/Documents/workspace_github/vwiki/private",
-  },
-  {
-    path = "~/Documents/workspace_github/vwiki/public",
-  },
+	{
+		path = vim.env.WS_GITHUB .. "/vwiki/private",
+	},
+	{
+		path = vim.env.WS_GITHUB .. "/vwiki/public",
+	},
 }
 
 -- vim.g.colorizer_auto_color = 1
 -- vim.g.colorizer_auto_filetype="*"
 -- vim.g.colorizer_disable_bufleave = 1
 
-vim.cmd [[
+vim.cmd([[
   hi MinimapCurrentLine ctermfg=Green guifg=#50FA7B guibg=#32302f
   let g:minimap_cursor_color = 'MinimapCurrentLine'
-]]
+]])
 
 -- Augroups: {{{
 local augroup = vim.api.nvim_create_augroup
@@ -68,33 +68,33 @@ local autocmd = vim.api.nvim_create_autocmd
 local projectDrawer = augroup("ProjectDrawer", {})
 
 autocmd("VimEnter", {
-  pattern = "*",
-  command = ":NvimTreeToggle",
-  group = projectDrawer,
+	pattern = "*",
+	command = ":NvimTreeToggle",
+	group = projectDrawer,
 })
 
 autocmd("VimEnter", {
-  pattern = "*",
-  command = ":wincmd l",
-  group = projectDrawer,
+	pattern = "*",
+	command = ":wincmd l",
+	group = projectDrawer,
 })
 
 autocmd("BufRead,BufNewFile", {
-  pattern = "*.sql",
-  command = "set filetype=mysql",
+	pattern = "*.sql",
+	command = "set filetype=mysql",
 })
 
 vim.api.nvim_create_user_command("ReloadConfig", "source %", {})
 
 local zoomed = false
 function ZoomToggle()
-  if zoomed then
-    vim.cmd ":tab close"
-    zoomed = false
-  else
-    vim.cmd ":tab split"
-    zoomed = true
-  end
+	if zoomed then
+		vim.cmd(":tab close")
+		zoomed = false
+	else
+		vim.cmd(":tab split")
+		zoomed = true
+	end
 end
 
 vim.api.nvim_create_user_command("ZoomToggle", ZoomToggle, {})
