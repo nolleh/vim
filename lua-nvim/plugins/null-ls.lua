@@ -1,36 +1,39 @@
 local present, null_ls = pcall(require, "null-ls")
 
 if not present then
-  return
+	return
 end
 
 local b = null_ls.builtins
 
 local sources = {
-  b.formatting.prettier,
-  b.formatting.stylua,
-  b.formatting.shfmt,
-  b.formatting.black,
+	b.formatting.prettier,
+	b.formatting.stylua,
+	b.formatting.shfmt,
+	b.formatting.black,
 
-  b.formatting.prettier.with {
-    filetypes = {
-      "javascript",
-      "typescript",
-      "css",
-      "scss",
-      "html",
-      "json",
-      "yaml",
-      "markdown",
-      "graphql",
-      "md",
-      "vimwiki",
-      "txt",
-    },
-  },
+	b.formatting.prettier.with({
+		filetypes = {
+			"javascript",
+			"typescript",
+			"css",
+			"scss",
+			"html",
+			"json",
+			"yaml",
+			"markdown",
+			"graphql",
+			"md",
+			"vimwiki",
+			"txt",
+		},
+	}),
+	b.formatting.black.with({
+		"python3",
+	}),
 
-  b.diagnostics.tsc,
-  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+	b.diagnostics.tsc,
+	b.diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
 }
 
 --vim.api.nvim_create_autocmd("BufWritePost", {
@@ -38,7 +41,7 @@ local sources = {
 --  command = "lua vim.lsp.buf.format()",
 --})
 
-null_ls.setup {
-  debug = true,
-  sources = sources,
-}
+null_ls.setup({
+	debug = true,
+	sources = sources,
+})
