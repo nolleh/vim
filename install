@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cp -r lua-nvim/* ~/.config/nvim/lua/custom/

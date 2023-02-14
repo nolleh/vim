@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+main() {
+  # pnpm
+  PNPM=$(which pnpm)
+  if [ -z "$PNPM" ]; then
+    echo "install pnpm"
+    curl -fsSL https://get.pnpm.io/install.sh | sh -
+  fi
+
+  ## telescope
+  install ripgrep brew
+
+  ## lsp
+  install bash-language-server brew
+
+  ## formatting
+  install prettier brew
+  install stylua brew
+  install shfmt brew
+  install black brew
+  
+  ## etc
+  install code-minimap brew
+}
+
+install() {
+	case $2 in
+	'brew')
+		INSTALLED=$(brew list | grep "$1")
+		if [ -z "$INSTALLED" ]; then
+			brew install "$1"
+		fi
+		;;
+	'pnpm')
+		INSTALLED=$(pnpm list | grep "$1")
+		if [ -z "$INSTALLED" ]; then
+			pnpm i -g "$2"
+		fi
+		;;
+	*)
+		echo "unknown command: $2"
+		;;
+	esac
+}
+
+main "$@"
