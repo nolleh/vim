@@ -57,7 +57,7 @@ return {
     end,
   },
 
-  ["is0n/jaq-nvim"] = {
+  ["nolleh/jaq-nvim"] = {
     config = function()
       require "custom.plugins.config"
     end,
