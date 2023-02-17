@@ -1,27 +1,32 @@
 #!/usr/bin/env bash
 
 main() {
-  # pnpm
-  PNPM=$(which pnpm)
-  if [ -z "$PNPM" ]; then
-    echo "install pnpm"
-    curl -fsSL https://get.pnpm.io/install.sh | sh -
-  fi
 
-  ## telescope
-  install ripgrep brew
+	if [ "$1" == 'pkg' ]; then
+		echo "install packages"
 
-  ## lsp
-  install bash-language-server brew
+		# pnpm
+		PNPM=$(which pnpm)
+		if [ -z "$PNPM" ]; then
+			echo "install pnpm"
+			curl -fsSL https://get.pnpm.io/install.sh | sh -
+		fi
 
-  ## formatting
-  install prettier brew
-  install stylua brew
-  install shfmt brew
-  install black brew
-  
-  ## etc
-  install code-minimap brew
+		## telescope
+		install ripgrep brew
+
+		## lsp
+		install bash-language-server brew
+
+		## formatting
+		install prettier brew
+		install stylua brew
+		install shfmt brew
+		install black brew
+
+		## etc
+		install code-minimap brew
+	fi
 }
 
 install() {
