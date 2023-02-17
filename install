@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
+echo "install vim"
 cp -r lua-nvim/* ~/.config/nvim/lua/custom/
