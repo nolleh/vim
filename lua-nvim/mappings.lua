@@ -3,8 +3,8 @@ local M = {}
 M.general = {
   n = {
     ["<C-p>"] = { ":MarkdownPreviewToggle<CR>" },
-    ["<leader><leader>r"] = { ":Jx<CR>" },
-    ["<leader>cg"] = { ":Jx float cgpt<CR>"},
+    ["<leader><leader>r"] = { ":Jaq<CR>" },
+    ["<leader>cg"] = { ":Jaq float cgpt<CR>"},
     ["<leader>.z"] = { ":ZoomToggle<CR>" },
     ["<leader>mm"] = { ":MinimapToggle<CR>" },
 
@@ -21,7 +21,7 @@ M.general = {
     ["<leader>ax"] = { ":%bd | e# | bd# | :NvimTreeToggle<CR>", "close all buf but current" },
   },
   v = {
-    ["<leader><leader>r"] = { ":Jx<CR>" },
+    ["<leader><leader>r"] = { ":Jaq<CR>" },
   },
 }
 

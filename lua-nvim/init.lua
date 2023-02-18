@@ -98,6 +98,3 @@ function ZoomToggle()
 end
 
 vim.api.nvim_create_user_command("ZoomToggle", ZoomToggle, {})
-vim.cmd [[
-	command! -nargs=* -complete=customlist,JaqCompletion Jx :lua require('jaq-nvim').Jaq(<f-args>)
--- ]]
