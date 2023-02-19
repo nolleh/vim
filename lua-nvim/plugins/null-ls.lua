@@ -5,12 +5,13 @@ if not present then
 end
 
 local b = null_ls.builtins
-
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 local sources = {
 	b.formatting.prettier,
 	b.formatting.stylua,
 	b.formatting.shfmt,
 	b.formatting.black,
+	b.formatting.prismaFmt,
 
 	b.formatting.prettier.with({
 		filetypes = {

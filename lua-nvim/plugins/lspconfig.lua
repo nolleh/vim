@@ -4,6 +4,8 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+-- server_configurations
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = {
 	"html",
 	"cssls",
@@ -11,6 +13,7 @@ local servers = {
 	"pyright",
 	"svelte",
 	"bashls",
+	"prismals",
 }
 
 local util = require("lspconfig/util")

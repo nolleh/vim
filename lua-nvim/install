@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 main() {
-
-	if [ "$1" == 'pkg' ]; then
+	if [ "$1" == "pkg" ]; then
 		echo "install packages"
 
 		# pnpm
@@ -23,6 +22,7 @@ main() {
 		install stylua brew
 		install shfmt brew
 		install black brew
+		install prismaFmt brew
 
 		## etc
 		install code-minimap brew

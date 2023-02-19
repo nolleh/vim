@@ -1,16 +1,18 @@
-require("nvim-treesitter.configs").setup {
-  -- A list of parser names or "all"
-  ensure_installed = {
-    "css",
-    "html",
-    "svelte",
-    "typescript",
-    "python",
-    "vim",
-    "bash",
-    "sql",
-  },
-}
+-- TSModuleInfo
+require("nvim-treesitter.configs").setup({
+	-- A list of parser names or "all"
+	ensure_installed = {
+		"css",
+		"html",
+		"svelte",
+		"typescript",
+		"python",
+		"vim",
+		"bash",
+		"sql",
+		"prisma",
+	},
+})
 
 -- require "williamboman/mason.nvim".setup {
 --   ensure_installed = {
