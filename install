@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-echo "install vim" "$@"
-cp -r lua-nvim/* ~/.config/nvim/lua/custom/
-cd ./lua-nvim && ./install "$@"
+cd ./lua-nvim && ./install "$@" && cd ..
