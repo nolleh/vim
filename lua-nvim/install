@@ -4,9 +4,9 @@ source ./func
 INSTALL_PATH=$HOME/.config/nvim/lua/custom
 
 main() {
-  cp -r ./* "$INSTALL_PATH"
-  opts "$@"
-  if [ $PACKAGE = true ]; then
+	cp -r ./* "$INSTALL_PATH"
+	opts "$@"
+	if [ $PACKAGE = true ]; then
 		echo "install packages"
 
 		# pnpm
@@ -32,19 +32,19 @@ main() {
 		install code-minimap brew
 	fi
 
-  [ $CONF = true ] && FILEPATH="$INSTALL_PATH/post-init.lua" || FILEPATH=$FILE
+	[ $CONF = true ] && FILEPATH="$INSTALL_PATH/post-init.lua" || FILEPATH=$FILE
 
-  if [ ! -z "$FILEPATH" ]; then
-    echo "post process for init-lua using ($FILEPATH)"
-    # sed -i '' -E 's/-- autogen {{{\_.*-- autogen }}}//' ./init.lua 
-#     RPL=$(tr '\n' '\f' < init.lua | 
-#       sed -e 's/-- autogen {{{.*\f*.*-- autogen }}}//' | tr '\f' '\n')
-#     # remove prev data
-#     cat <<EOF > "$INSTALL_PATH"/init.lua
-# $RPL
-# EOF
-  cat "$FILEPATH" >> "$INSTALL_PATH"/init.lua
-  fi
+	if [ ! -z "$FILEPATH" ]; then
+		echo "post process for init-lua using ($FILEPATH)"
+		# sed -i '' -E 's/-- autogen {{{\_.*-- autogen }}}//' ./init.lua
+		#     RPL=$(tr '\n' '\f' < init.lua |
+		#       sed -e 's/-- autogen {{{.*\f*.*-- autogen }}}//' | tr '\f' '\n')
+		#     # remove prev data
+		#     cat <<EOF > "$INSTALL_PATH"/init.lua
+		# $RPL
+		# EOF
+		cat "$FILEPATH" >>"$INSTALL_PATH"/init.lua
+	fi
 }
 
 install() {
