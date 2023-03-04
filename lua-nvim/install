@@ -21,6 +21,7 @@ main() {
 
 		## lsp
 		install bash-language-server brew
+    install @prisma/language-server pnpm
 
 		## formatting
 		install prettier brew
@@ -56,9 +57,9 @@ install() {
 		fi
 		;;
 	'pnpm')
-		INSTALLED=$(pnpm list | grep "$1")
+		INSTALLED=$(pnpm -g list | grep "$1")
 		if [ -z "$INSTALLED" ]; then
-			pnpm i -g "$2"
+			pnpm i -g "$1"
 		fi
 		;;
 	*)
