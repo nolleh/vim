@@ -16,12 +16,15 @@ main() {
 			curl -fsSL https://get.pnpm.io/install.sh | sh -
 		fi
 
+		## langs
+		install go brew
+
 		## telescope
 		install ripgrep brew
 
 		## lsp
 		install bash-language-server brew
-    install @prisma/language-server pnpm
+		install @prisma/language-server pnpm
 
 		## formatting
 		install prettier brew
@@ -51,7 +54,7 @@ main() {
 install() {
 	case $2 in
 	'brew')
-		INSTALLED=$(brew list | grep "$1")
+		INSTALLED=$(brew list "$1")
 		if [ -z "$INSTALLED" ]; then
 			brew install "$1"
 		fi

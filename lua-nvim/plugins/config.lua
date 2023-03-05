@@ -12,6 +12,7 @@ require("nvim-treesitter.configs").setup({
 		"bash",
 		"sql",
 		"prisma",
+		"go",
 	},
 })
 

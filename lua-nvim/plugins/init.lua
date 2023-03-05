@@ -47,6 +47,7 @@ return {
 				"shellcheck",
 				--
 				"pyright",
+				"gopls",
 			},
 		},
 	},

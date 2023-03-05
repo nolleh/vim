@@ -8,4 +8,4 @@ cd ..
 rm -rf fonts
 
 # git clone https://github.com/ryanoasis/nerd-fonts.git
-# ./nerd-font/install.sh 
+# ./nerd-font/install.sh

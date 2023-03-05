@@ -14,6 +14,7 @@ local servers = {
 	"svelte",
 	"bashls",
 	"prismals",
+	"gopls",
 }
 
 local util = require("lspconfig/util")
