@@ -51,7 +51,7 @@ let g:vim_svelte_plugin_use_typescript = 1
 
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 let g:ackprg = 'ag --vimgrep'
-" let g:prettier#autoformat = 0 
+" let g:prettier#autoformat = 0
 " let g:prettier#config#single_quote = 'true'
 " let g:prettier#config#tab_width = 4
 
@@ -62,8 +62,8 @@ let g:ackprg = 'ag --vimgrep'
 " let $NVIM_MKDP_LOG_LEVEL = 'debug'
 
 let g:vimwiki_list = [{'path': '~/Documents/workspace_github/vimwiki/private/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}, 
-                      \ {'path': '~/Documents/workspace_github/vimwiki/public/', 
+                      \ 'syntax': 'markdown', 'ext': '.md'},
+                      \ {'path': '~/Documents/workspace_github/vimwiki/public/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 let g:pipemysql_login_info = [
@@ -78,7 +78,7 @@ let g:pipemysql_option = '-vvv'
 let g:pipemysql_pager = 'grcat ~/.grcat | less -n -i -S'
 
 " QuickRun: {{{"
-let g:quickrun_config = { 
+let g:quickrun_config = {
     \"_": {
     \  "hook/time/enable": 1,
     \  "outputter/buffer/close_on_empty": 1,
@@ -114,7 +114,7 @@ augroup ProjectDrawer
   autocmd VimEnter * call LexResize()
   autocmd VimEnter * wincmd l
 "  auto VimEnter * call s:openTerm()
-"  autocmd WinNew * wincmd L 
+"  autocmd WinNew * wincmd L
 "  autocmd WinNew * call s:resizeOnWinNew()
 "  autocmd WinNew * :ColorHighlight
 augroup END
@@ -183,7 +183,7 @@ command! PvwS call s:PvwResize(-10)
 " au BufRead,BufNewFile *.sql set filetype=mysql
 
 fun! s:TogglePager()
-  if !exists('g:pipemysql_pager') && !exists('t:pager_str') 
+  if !exists('g:pipemysql_pager') && !exists('t:pager_str')
     echom 'nothing to do'
     return
   endif
@@ -191,7 +191,7 @@ fun! s:TogglePager()
   if !exists('t:pager_str')
     let t:pager_str = g:pipemysql_pager
   endif
-  
+
   if exists('g:pipemysql_pager')
     unlet g:pipemysql_pager
     echom 'pager off'
@@ -241,7 +241,7 @@ map <C-l>R <C-w>L:vertical resize 230<CR>
 nnoremap <leader>b :buffers<CR>:buffer<Space>
 nnoremap <silent><F9> :NERDTreeToggle<CR><bar>:TagbarToggle <CR>
 nmap <C-p> <Plug>MarkdownPreviewToggle
-nnoremap <silent> <leader>.z :ZoomToggle<CR> 
+nnoremap <silent> <leader>.z :ZoomToggle<CR>
 
 nnoremap <leader>p+ :PvwB<CR>
 nnoremap <leader>p- :PvwS<CR>
