@@ -12,6 +12,7 @@ local sources = {
 	b.formatting.shfmt,
 	b.formatting.black,
 	b.formatting.prismaFmt,
+	b.formatting.gofmt,
 
 	b.formatting.prettier.with({
 		filetypes = {
