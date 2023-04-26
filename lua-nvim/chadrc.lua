@@ -1,6 +1,6 @@
 local M = {}
 
-M.plugins = require("custom.plugins")
+M.plugins = "custom.configs"
 M.mappings = require("custom.mappings")
 
 return M

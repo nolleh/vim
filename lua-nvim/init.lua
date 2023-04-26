@@ -14,7 +14,7 @@ local set = vim.opt
 set.ts = 2
 set.shiftwidth = 2
 set.expandtab = true
-set.spell = true
+-- set.spell = true
 --set.foldmethod = syntax
 --vim.g.autosave = true
 
