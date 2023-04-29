@@ -1,6 +1,6 @@
 local M = {
     "neovim/nvim-lspconfig",
-    opts = function()
+    config = function()
         local nvim_lsp = require("lspconfig")
         local on_attach = require("plugins.configs.lspconfig").on_attach
         -- TODO Fix cssls completion

@@ -16,19 +16,9 @@ return {
 
     {
         "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        requires = {
-            "neovim/nvim-lspconfig",
-            "williamboman/mason.nvim",
-        },
         opts = {
             ensure_installed = {
-                "yamlls",
+                "yaml-language-server",
                 "omnisharp",
                 -- lua stuff
                 "lua-language-server",
