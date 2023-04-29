@@ -26,32 +26,31 @@ return {
             "neovim/nvim-lspconfig",
             "williamboman/mason.nvim",
         },
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "yamlls",
-                    "omnisharp",
-                    -- lua stuff
-                    "lua-language-server",
-                    "stylua",
+        opts = {
+            ensure_installed = {
+                "yamlls",
+                "omnisharp",
+                -- lua stuff
+                "lua-language-server",
+                "stylua",
 
-                    -- web dev
-                    "css-lsp",
-                    "html-lsp",
-                    "svelte-language-server",
-                    "typescript-language-server",
-                    "prisma-language-server",
-                    "json-lsp",
+                -- web dev
+                "css-lsp",
+                "html-lsp",
+                "svelte-language-server",
+                "typescript-language-server",
+                "prisma-language-server",
+                "json-lsp",
 
-                    -- shell
-                    "shfmt",
-                    "shellcheck",
-                    --
-                    "pyright",
-                    "gopls",
-                },
-            })
-        end,
+                -- shell
+                "shfmt",
+                "shellcheck",
+                --
+                "pyright",
+                "black",
+                "gopls",
+            },
+        },
     },
 
     { "vimwiki/vimwiki", event = { "BufReadPre", "BufNewFile" } },
