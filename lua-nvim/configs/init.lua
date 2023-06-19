@@ -43,18 +43,17 @@ return {
     },
   },
 
-  { "vimwiki/vimwiki", event = { "BufReadPre", "BufNewFile" } },
+  { "vimwiki/vimwiki", lazy = false },
   { "NLKNguyen/pipe.vim", cmd = { "PipeUse", "PipeToFile" } },
-  { "nolleh/pipe-mysql.vim", event = { "BufReadPre", "BufNewFile" } },
+  { "nolleh/pipe-mysql.vim", ft = { "sql", "mysql" }, dependencies = { "NLKNguyen/pipe.vim" } },
   { "wfxr/minimap.vim", cmd = { "MinimapToggle" } },
   -- ["chrisbra/Colorizer"] = {},
-  -- {{ do yarn install
   {
     "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle" },
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
+    ft = { "markdown" },
   },
-  -- }}
 }
