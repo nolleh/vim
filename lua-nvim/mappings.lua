@@ -6,6 +6,7 @@ M.general = {
     ["<leader><leader>r"] = { ":Jaq<CR>" },
     ["<leader>rc"] = { ":Jaq float " },
     ["<leader>cg"] = { ":Jaq float cgpt<CR>" },
+    ["<leader>rp"] = { ":Jaq float pnpm exec prisma " },
     ["<leader>.z"] = { ":ZoomToggle<CR>" },
     ["<leader>mm"] = { ":MinimapToggle<CR>" },
 

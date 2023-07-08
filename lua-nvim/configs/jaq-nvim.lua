@@ -39,6 +39,7 @@ local M = {
           go = "go run %",
           sh = "sh %",
           html = "open %",
+          prisma = "pnpm exec prisma generate",
         },
       },
       -- UI settings

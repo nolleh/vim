@@ -24,6 +24,7 @@ local M = {
       "gomod",
       "gosum",
       "yaml",
+      "glimmer",
     },
   },
 }

@@ -15,7 +15,9 @@ local M = {
         formatting.eslint,
         formatting.shfmt,
         formatting.black,
-        formatting.prismaFmt,
+        formatting.prismaFmt.with({
+          prefer_local = "./node_modules/.bin/",
+        }),
         formatting.gofmt,
         -- diagnostics.eslint,
         -- diagnostics.tsc,
@@ -37,6 +39,7 @@ local M = {
             "md",
             "vimwiki",
             "txt",
+            "hbs",
           },
         }),
         diagnostics.tsc,

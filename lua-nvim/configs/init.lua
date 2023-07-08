@@ -39,6 +39,7 @@ return {
         "pyright",
         "black",
         "gopls",
+        "helm-ls",
       },
     },
   },
