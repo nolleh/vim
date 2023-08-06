@@ -1,0 +1,30 @@
+" Syntax Highlighting
+if has("syntax")
+    syntax on
+endif
+
+set backspace=indent,eol,start  " more powerful backspacing
+set autoindent
+set cindent
+
+set nu
+
+set ts=2 " Tab width
+set shiftwidth=2 " indentations width when automatically occurred
+set expandtab " Expand TABs to spaces
+
+set laststatus=2 " show status bar
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
+
+set autoread " if file was modifed from extetern, read automatically
+
+set re=0 " Use new regular expression engine
+set previewheight=20
+
+setlocal cursorline
+" set noequalalways
+set nocompatible
+filetype plugin on
+set encoding=UTF-8
+set foldmethod=syntax
+" set foldmethod=indent
