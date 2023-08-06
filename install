@@ -1,3 +1,23 @@
 #!/usr/bin/env bash
 
+echo "install nvim-config"
 cd ./lua-nvim && ./install "$@" && cd ..
+echo "done: install nvim-config"
+
+echo "install vimrc"
+[ -f ../os ] && source ../os
+
+case "$OS" in
+"MAC")
+	cp -r ./vim/.vim/ ~/
+	cp ./vim/.vimrc ~
+	;;
+"UBUNTU")
+	cp ./vim/.vimrc-ubuntu ~
+	;;
+**)
+	echo "unknown os"
+	;;
+esac
+
+echo "done:install vimrc"

@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
+source ./os
 source ./func
+echo "the os is $OS"
+
 INSTALL_PATH=$HOME/.config/nvim/lua/custom
 
 main() {
 	cp -r ./* "$INSTALL_PATH"
 	opts "$@"
 	if [ $PACKAGE = true ]; then
-		echo "install packages"
+		PKGM=$(getpkgm)
+		echo "install packages. pkgm $PKGM"
 
 		# pnpm
 		PNPM=$(which pnpm)
@@ -17,23 +21,23 @@ main() {
 		fi
 
 		## langs
-		install go brew
+		install go "$PKGM"
 
 		## telescope
-		install ripgrep brew
+		install ripgrep "$PKGM"
 
 		## lsp
-		install bash-language-server brew
+		install bash-language-server "$PKGM"
 		install @prisma/language-server pnpm
 
 		## formatting
-		install prettier brew
-		install stylua brew
-		install shfmt brew
-		install black brew
+		install prettier "$PKGM"
+		install stylua "$PKGM"
+		install shfmt "$PKGM"
+		install black "$PKGM"
 
 		## etc
-		install code-minimap brew
+		install code-minimap "$PKGM"
 	fi
 
 	[ $CONF = true ] && FILEPATH="$INSTALL_PATH/post-init.lua" || FILEPATH=$FILE
@@ -51,8 +55,22 @@ main() {
 	fi
 }
 
+getpkgm() {
+	case $OS in
+	'MAC') echo 'brew' ;;
+	'UBUNTU') echo 'apt' ;;
+	*) 'unknown os' ;;
+	esac
+}
+
 install() {
 	case $2 in
+	'apt')
+		INSTALLED=$(apt list "$1")
+		if [ -z "$INSTALLED" ]; then
+			apt install "$1"
+		fi
+		;;
 	'brew')
 		INSTALLED=$(brew list "$1")
 		if [ -z "$INSTALLED" ]; then
