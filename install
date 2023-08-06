@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 echo "install nvim-config"
 cd ./lua-nvim && ./install "$@" && cd ..
 echo "done: install nvim-config"
