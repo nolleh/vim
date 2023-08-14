@@ -56,6 +56,8 @@ vim.g.vimwiki_list = {
 -- vim.g.colorizer_auto_color = 1
 -- vim.g.colorizer_auto_filetype="*"
 -- vim.g.colorizer_disable_bufleave = 1
+-- vim.env.NVIM_MKDP_LOG_FILE = "/Users/nolleh/tmp/mkdp-log.log"
+-- vim.env.NVIM_MKDP_LOG_LEVEL = "debug"
 
 vim.cmd([[
   hi MinimapCurrentLine ctermfg=Green guifg=#50FA7B guibg=#32302f
@@ -89,6 +91,7 @@ vim.api.nvim_create_user_command("ReloadConfig", "source %", {})
 
 local zoomed = false
 function ZoomToggle()
+  print("my log env" .. vim.env.NVIM_MKDP_LOG_FILE)
   if zoomed then
     vim.cmd(":tab close")
     zoomed = false

@@ -4,9 +4,9 @@ source ./os
 source ./func
 echo "the os is $OS"
 
-if [ ! -f $HOME/.config/nvim ]; then
-  echo "no nvim"
-  exit 0
+if [ ! -e $HOME/.config/nvim ]; then
+	echo "no nvim"
+	exit 0
 fi
 
 INSTALL_PATH=$HOME/.config/nvim/lua/custom
