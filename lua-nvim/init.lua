@@ -91,7 +91,6 @@ vim.api.nvim_create_user_command("ReloadConfig", "source %", {})
 
 local zoomed = false
 function ZoomToggle()
-  print("my log env" .. vim.env.NVIM_MKDP_LOG_FILE)
   if zoomed then
     vim.cmd(":tab close")
     zoomed = false
