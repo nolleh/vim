@@ -40,7 +40,7 @@ let mapleader=" "
 "
 
 " split divider
-set fillchar="vert:\ ,fold:-,eob:~,lastline:@"
+set fillchars="vert:\ ,fold:-,eob:~,lastline:@"
 " set fillchars="vert:|,fold:-,eob:~,lastline:@"
 "highlight VertSplit guibg=Orange guifg=DarkGray ctermbg=6 ctermfg=1
 highlight VertSplit ctermfg=black
