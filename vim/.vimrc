@@ -30,7 +30,11 @@ set encoding=UTF-8
 set foldmethod=syntax
 " set foldmethod=indent
 
-let mapleader = ","
+" to make sure spacebar doesn't have any mapping beforehand
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" let mapleader = ","
 
 " vim plugin
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'

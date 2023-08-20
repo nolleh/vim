@@ -9,17 +9,29 @@ echo "done: install nvim-config"
 echo "install vimrc"
 [ -f ../os ] && source ../os
 
+cp -r ./vim/.vim/ ~/
+
 case "$OS" in
 "MAC")
-	cp -r ./vim/.vim/ ~/
+  echo "found as MacOS, cp .vim rc files.."
 	cp ./vim/.vimrc ~
 	;;
 "UBUNTU")
-	cp ./vim/.vimrc-ubuntu ~
+  echo "found as ubuntu. cp ubuntu rc files.."
+	cp ./vim/.vimrc-ubuntu ~/.vimrc
 	;;
 **)
 	echo "unknown os"
 	;;
 esac
+
+source ./func
+
+opts "$@"
+if [ $PACKAGE = true ]; then
+  PKGM=$(getpkgm)
+  echo "pkgm $PKGM"
+  install exuberant-ctags "$PKGM"
+fi
 
 echo "done:install vimrc"
