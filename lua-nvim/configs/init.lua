@@ -21,6 +21,7 @@ return {
         "yaml-language-server",
         "omnisharp",
         -- lua stuff
+        "bash-language-server",
         "lua-language-server",
         "stylua",
 

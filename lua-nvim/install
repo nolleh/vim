@@ -9,6 +9,7 @@ if [ ! -e $HOME/.config/nvim ]; then
 	exit 0
 fi
 
+mkdir -p $HOME/.config/nvim/lua/custom
 INSTALL_PATH=$HOME/.config/nvim/lua/custom
 
 main() {
@@ -31,15 +32,8 @@ main() {
 		## telescope
 		install ripgrep "$PKGM"
 
-		## lsp
-		install bash-language-server "$PKGM"
-		install @prisma/language-server pnpm
-
 		## formatting
 		install prettier "$PKGM"
-		install stylua "$PKGM"
-		install shfmt "$PKGM"
-		install black "$PKGM"
 
 		## etc
 		install code-minimap "$PKGM"
@@ -71,9 +65,8 @@ getpkgm() {
 install() {
 	case $2 in
 	'apt')
-		INSTALLED=$(apt list "$1")
-		if [ -z "$INSTALLED" ]; then
-			apt install "$1"
+		if ! dpkg -s "$1" >/dev/null 2>&1; then
+			sudo apt-get install "$1"
 		fi
 		;;
 	'brew')
