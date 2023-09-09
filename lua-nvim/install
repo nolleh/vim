@@ -22,9 +22,9 @@ main() {
 		# pnpm
 		PNPM=$(which pnpm)
 		if [ -z "$PNPM" ]; then
-			# echo "install pnpm"
-			# curl -fsSL https://get.pnpm.io/install.sh | sh -
-      npm --global add pnpm
+			echo "install pnpm"
+			curl -fsSL https://get.pnpm.io/install.sh | sh -
+      #npm --global add pnpm
 		fi
 
 		## langs

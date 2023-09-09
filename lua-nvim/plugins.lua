@@ -1,5 +1,30 @@
--- return {}
-return {
+local plugins = {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
+  opts = {
+    -- A list of parser names or "all"
+    ensure_installed = {
+      "bash",
+      "css",
+      "json",
+      "html",
+      "svelte",
+      "javascript",
+      "typescript",
+      "python",
+      "vim",
+      "vimdoc",
+      "regex",
+      "sql",
+      "prisma",
+      "go",
+      "gomod",
+      "gosum",
+      "yaml",
+      "glimmer",
+    },
+  },
   {
     "nvim-tree/nvim-tree.lua",
     opts = {
@@ -14,6 +39,13 @@ return {
     },
   },
 
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end,
+  },
   {
     "williamboman/mason.nvim",
     opts = {
@@ -59,3 +91,5 @@ return {
     ft = { "markdown" },
   },
 }
+
+return plugins;
