@@ -89,6 +89,8 @@ local plugins = {
 
         -- c++
         "cmake-language-server",
+        "cpplint",
+        "clang-format"
       },
     },
   },
