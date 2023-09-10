@@ -26,7 +26,7 @@ local plugins = {
         "glimmer",
         "c",
         "cpp",
-        "cmake"
+        "cmake",
       },
     },
   },
@@ -49,13 +49,13 @@ local plugins = {
     dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
       config = function()
-        require "custom.configs.null-ls"
+        require("custom.configs.null-ls")
       end,
     },
 
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require("plugins.configs.lspconfig")
+      require("custom.configs.lspconfig")
     end,
   },
 
@@ -87,7 +87,8 @@ local plugins = {
         "gopls",
         "helm-ls",
 
-        "cmake-language-server"
+        -- c++
+        "cmake-language-server",
       },
     },
   },
@@ -96,7 +97,7 @@ local plugins = {
     "nolleh/jaq-nvim",
     cmd = { "Jaq" },
     config = function()
-      require "custom.configs.jaq-nvim"
+      require("custom.configs.jaq-nvim")
     end,
   },
 
@@ -115,4 +116,4 @@ local plugins = {
   },
 }
 
-return plugins;
+return plugins

@@ -29,6 +29,7 @@ main() {
 
 		## langs
 		install go "$PKGM"
+    install ccls "$PKGM"
 
 		## telescope
 		install ripgrep "$PKGM"
