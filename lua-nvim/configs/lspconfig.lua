@@ -48,6 +48,9 @@ for _, lsp in ipairs(servers) do
       if lsp == "pyright" then
         config.settings.python.pythonPath = get_python_path(config.root_dir)
       end
+      if lsp == "ccls" then
+        config.server = require("custom.configs.ccls").server_config
+      end
     end,
     on_attach = on_attach,
     capabilities = capabilities,
