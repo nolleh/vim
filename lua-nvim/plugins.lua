@@ -1,28 +1,33 @@
 local plugins = {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  event = { "BufReadPost", "BufNewFile" },
-  opts = {
-    -- A list of parser names or "all"
-    ensure_installed = {
-      "bash",
-      "css",
-      "json",
-      "html",
-      "svelte",
-      "javascript",
-      "typescript",
-      "python",
-      "vim",
-      "vimdoc",
-      "regex",
-      "sql",
-      "prisma",
-      "go",
-      "gomod",
-      "gosum",
-      "yaml",
-      "glimmer",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      -- A list of parser names or "all"
+      ensure_installed = {
+        "bash",
+        "css",
+        "json",
+        "html",
+        "svelte",
+        "javascript",
+        "typescript",
+        "python",
+        "vim",
+        "vimdoc",
+        "regex",
+        "sql",
+        "prisma",
+        "go",
+        "gomod",
+        "gosum",
+        "yaml",
+        "glimmer",
+        "c",
+        "cpp",
+        "cmake"
+      },
     },
   },
   {
@@ -41,11 +46,19 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require "custom.configs.null-ls"
+      end,
+    },
+
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
   },
+
   {
     "williamboman/mason.nvim",
     opts = {
@@ -73,8 +86,18 @@ local plugins = {
         "black",
         "gopls",
         "helm-ls",
+
+        "cmake-language-server"
       },
     },
+  },
+
+  {
+    "nolleh/jaq-nvim",
+    cmd = { "Jaq" },
+    config = function()
+      require "custom.configs.jaq-nvim"
+    end,
   },
 
   { "vimwiki/vimwiki", lazy = false },
