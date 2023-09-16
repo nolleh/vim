@@ -16,7 +16,10 @@ local sources = {
   }),
   formatting.gofmt,
   formatting.clang_format.with({
-    args = { "-style=Google" }
+    args = { "-style=Google" },
+    filetypes= {
+      "hpp", "h", "cpp", "c"
+    }
   }),
   -- diagnostics.eslint,
   -- diagnostics.tsc,
