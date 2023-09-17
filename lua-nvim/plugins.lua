@@ -27,6 +27,7 @@ local plugins = {
         "c",
         "cpp",
         "cmake",
+        "proto",
       },
     },
   },
@@ -90,7 +91,8 @@ local plugins = {
         -- c++
         "cmake-language-server",
         "cpplint",
-        "clang-format"
+        "clang-format",
+        "buf"
       },
     },
   },
