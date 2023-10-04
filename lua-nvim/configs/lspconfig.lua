@@ -17,7 +17,7 @@ local servers = {
   "prismals",
   "gopls",
   "cmake",
-  "ccls"
+  "ccls",
 }
 
 local util = require("lspconfig/util")
@@ -49,7 +49,7 @@ for _, lsp in ipairs(servers) do
         config.settings.python.pythonPath = get_python_path(config.root_dir)
       end
       if lsp == "ccls" then
-        config.server = require("custom.configs.ccls").server_config
+        config = require("custom.configs.ccls").config
       end
     end,
     on_attach = on_attach,
