@@ -16,10 +16,13 @@ local sources = {
   }),
   formatting.gofmt,
   formatting.clang_format.with({
-    args = { "-style=Google" },
-    filetypes= {
-      "hpp", "h", "cpp", "c"
-    }
+    args = { "-style=Google", "-style=file" },
+    filetypes = {
+      "hpp",
+      "h",
+      "cpp",
+      "c",
+    },
   }),
   formatting.buf,
   -- diagnostics.eslint,
@@ -46,7 +49,9 @@ local sources = {
     },
   }),
   diagnostics.tsc,
-  diagnostics.cpplint,
+  diagnostics.cpplint.with({
+    args = { "CPPLINT.cfg" },
+  }),
   diagnostics.protoc_gen_lint,
   diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
 }

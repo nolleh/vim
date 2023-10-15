@@ -23,6 +23,7 @@ vim.cmd([[
   set nocompatible
   filetype plugin on
   syntax on
+  set clipboard+=unnamedplus
 ]])
 vim.g.vimwiki_ext2syntax = vim.empty_dict()
 
@@ -30,6 +31,7 @@ vim.g.vimwiki_ext2syntax = vim.empty_dict()
 
 -- Plugin configurations: {{{
 -- disable netrw at the very start of your init.lua (strongly advised)
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.tagbar_position = "rightbelow"
