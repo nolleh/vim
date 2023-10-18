@@ -79,6 +79,7 @@ local plugins = {
         "typescript-language-server",
         "prisma-language-server",
         "json-lsp",
+        "prettier",
 
         -- shell
         "shfmt",
