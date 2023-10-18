@@ -13,11 +13,11 @@ cp -r ./vim/.vim/ ~/
 
 case "$OS" in
 "MAC")
-  echo "found as MacOS, cp .vim rc files.."
+	echo "found as MacOS, cp .vim rc files.."
 	cp ./vim/.vimrc ~
 	;;
 "UBUNTU")
-  echo "found as ubuntu. cp ubuntu rc files.."
+	echo "found as ubuntu. cp ubuntu rc files.."
 	cp ./vim/.vimrc-ubuntu ~/.vimrc
 	;;
 **)
@@ -29,9 +29,9 @@ source ./func
 
 opts "$@"
 if [ $PACKAGE = true ]; then
-  PKGM=$(getpkgm)
-  echo "pkgm $PKGM"
-  install exuberant-ctags "$PKGM"
+	PKGM=$(getpkgm)
+	echo "pkgm $PKGM"
+	install exuberant-ctags "$PKGM"
 fi
 
 echo "done:install vimrc"

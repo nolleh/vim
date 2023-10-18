@@ -19,6 +19,7 @@ set.expandtab = true
 --vim.g.autosave = true
 
 -- vimwiki
+-- if clipboard not work, apt install xclip
 vim.cmd([[
   set nocompatible
   filetype plugin on

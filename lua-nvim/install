@@ -34,12 +34,16 @@ main() {
 		## telescope
 		install ripgrep "$PKGM"
 
-		## formatting
-		install prettier "$PKGM"
-
 		## etc
 		if [ $OS != "UBUNTU" ]; then
 			install code-minimap "$PKGM"
+		else
+			wget https://github.com/wfxr/code-minimap/releases/download/v0.6.4/code-minimap-v0.6.4-aarch64-unknown-linux-gnu.tar.gz
+			tar -xvf ./code-minimap-v0.6.4-aarch64-unknown-linux-gnu.tar.gz
+			sudo mkdir -p /opt/bin
+			sudo mv ./code-minimap-v0.6.4-aarch64-unknown-linux-gnu/code-minimap /opt/bin
+			rm -rf ./code-minimap-v0.6.4-aarch64-unknown-linux-gnu
+			rm -rf ./code-minimap-v0.6.4-aarch64-unknown-linux-gnu.tar.gz
 		fi
 
 		install spell "$PKGM"
@@ -47,7 +51,7 @@ main() {
 
 	[ $CONF = true ] && FILEPATH="$INSTALL_PATH/post-init.lua" || FILEPATH=$FILE
 
-	if [ ! -z "$FILEPATH" ]; then
+	if [ -n "$FILEPATH" ]; then
 		echo "post process for init-lua using ($FILEPATH)"
 		# sed -i '' -E 's/-- autogen {{{\_.*-- autogen }}}//' ./init.lua
 		#     RPL=$(tr '\n' '\f' < init.lua |
