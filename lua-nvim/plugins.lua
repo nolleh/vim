@@ -64,6 +64,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "codespell",
         "yaml-language-server",
         "omnisharp",
         -- lua stuff
@@ -92,7 +93,7 @@ local plugins = {
         "cmake-language-server",
         "cpplint",
         "clang-format",
-        "buf"
+        "buf",
       },
     },
   },

@@ -4,12 +4,12 @@ source ./os
 source ./func
 echo "the os is $OS"
 
-if [ ! -e $HOME/.config/nvim ]; then
+if [ ! -e "$HOME/.config/nvim" ]; then
 	echo "no nvim"
 	exit 0
 fi
 
-mkdir -p $HOME/.config/nvim/lua/custom
+mkdir -p "$HOME/.config/nvim/lua/custom"
 INSTALL_PATH=$HOME/.config/nvim/lua/custom
 
 main() {
@@ -24,12 +24,12 @@ main() {
 		if [ -z "$PNPM" ]; then
 			echo "install pnpm"
 			curl -fsSL https://get.pnpm.io/install.sh | sh -
-      #npm --global add pnpm
+			#npm --global add pnpm
 		fi
 
 		## langs
 		install go "$PKGM"
-    install ccls "$PKGM"
+		install ccls "$PKGM"
 
 		## telescope
 		install ripgrep "$PKGM"
@@ -38,7 +38,11 @@ main() {
 		install prettier "$PKGM"
 
 		## etc
-		install code-minimap "$PKGM"
+		if [ $OS != "UBUNTU" ]; then
+			install code-minimap "$PKGM"
+		fi
+
+		install spell "$PKGM"
 	fi
 
 	[ $CONF = true ] && FILEPATH="$INSTALL_PATH/post-init.lua" || FILEPATH=$FILE

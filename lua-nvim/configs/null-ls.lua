@@ -54,6 +54,7 @@ local sources = {
   }),
   diagnostics.protoc_gen_lint,
   diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
+  diagnostics.codespell,
 }
 
 null_ls.setup({
