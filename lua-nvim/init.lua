@@ -85,7 +85,7 @@ autocmd("VimEnter", {
   group = projectDrawer,
 })
 
-autocmd("BufRead,BufNewFile", {
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.sql",
   command = "set filetype=mysql",
 })
