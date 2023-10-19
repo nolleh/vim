@@ -18,6 +18,7 @@ local servers = {
   "gopls",
   "cmake",
   "ccls",
+  "kotlin_language_server",
 }
 
 local util = require("lspconfig/util")

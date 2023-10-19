@@ -28,6 +28,7 @@ local plugins = {
         "cpp",
         "cmake",
         "proto",
+        "kotlin",
       },
     },
   },
@@ -80,6 +81,8 @@ local plugins = {
         "prisma-language-server",
         "json-lsp",
         "prettier",
+        "kotlin-language-server",
+        "ktlint",
 
         -- shell
         "shfmt",
