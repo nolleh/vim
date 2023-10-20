@@ -24,7 +24,15 @@ local sources = {
     },
   }),
   formatting.buf,
-  formatting.ktlint,
+  formatting.ktlint.with({
+    args = {
+      "--format",
+      "--stdin",
+      "--log-level=none",
+      "**/*.kt",
+      "**/*.kts",
+    },
+  }),
   -- diagnostics.eslint,
   -- diagnostics.tsc,
   -- code_actions.eslint,
