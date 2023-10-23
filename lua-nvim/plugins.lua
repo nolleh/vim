@@ -29,6 +29,8 @@ local plugins = {
         "cmake",
         "proto",
         "kotlin",
+        "mermaid",
+        "markdown",
       },
     },
   },
@@ -68,6 +70,8 @@ local plugins = {
         "codespell",
         "yaml-language-server",
         "omnisharp",
+        "glow",
+
         -- lua stuff
         "bash-language-server",
         "lua-language-server",

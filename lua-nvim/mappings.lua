@@ -9,11 +9,12 @@ M.general = {
     ["<leader>rp"] = { ":Jaq float pnpm exec prisma " },
     ["<leader>.z"] = { ":ZoomToggle<CR>" },
     ["<leader>mm"] = { ":MinimapToggle<CR>" },
+    ["<leader>cd"] = { ":cd %:h<CR>:pwd<CR>" },
 
     -- lsp
     ["gv"] = {
       ":vsplit | lua vim.lsp.buf.definition()<CR>",
-      "vertial split lsp definition",
+      "vertical split lsp definition",
     },
     ["gs"] = {
       ":split | lua vim.lsp.buf.definition()<CR>",
