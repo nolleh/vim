@@ -21,6 +21,21 @@ M.general = {
       "split lsp definition",
     },
 
+    -- git
+    ["<leader>cb"] = {
+      "<cmd> Telescope git_bcommits <CR>",
+      "Git commits on current buffer",
+    },
+
+    ["<leader>cl"] = {
+      function()
+        require("telescope.builtin").git_commits({
+          git_command = { "git", "log", "--pretty=oneline", "--abbrev-commit", "--", "." },
+        })
+      end,
+      "Git commit log with pretty",
+    },
+
     ["<leader>ax"] = { ":%bd | e# | bd# | :NvimTreeToggle<CR>", "close all buf but current" },
   },
   v = {
