@@ -30,10 +30,10 @@ M.general = {
     ["<leader>cl"] = {
       function()
         require("telescope.builtin").git_commits({
-          git_command = { "git", "log", "--pretty=oneline", "--abbrev-commit", "--", "." },
+          git_command = { "git", "log", "--pretty=oneline", "--graph", "--decorate", "--abbrev-commit", "--", "." },
         })
       end,
-      "Git commit log with pretty",
+      "Git commit log with graph",
     },
 
     ["<leader>ax"] = { ":%bd | e# | bd# | :NvimTreeToggle<CR>", "close all buf but current" },
