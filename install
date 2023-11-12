@@ -31,7 +31,11 @@ opts "$@"
 if [ $PACKAGE = true ]; then
 	PKGM=$(getpkgm)
 	echo "pkgm $PKGM"
-	install exuberant-ctags "$PKGM"
+	if [ "$OS" == "UBUNTU" ]; then
+		install exuberant-ctags "$PKGM"
+	elif [ "$OS" == "MAC" ]; then
+		install ctags "$PKGM"
+	fi
 fi
 
 echo "done:install vimrc"
