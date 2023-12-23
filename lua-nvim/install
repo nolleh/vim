@@ -19,6 +19,10 @@ main() {
 		PKGM=$(getpkgm)
 		echo "install packages. pkgm $PKGM"
 
+    # node
+    install nodejs "$PKGM"
+    install npm "$PKGM"
+
 		# pnpm
 		PNPM=$(which pnpm)
 		if [ -z "$PNPM" ]; then
@@ -30,6 +34,7 @@ main() {
 		## langs
 		install go "$PKGM"
 		install ccls "$PKGM"
+    install g++ "$PKGM"
 
 		## telescope
 		install ripgrep "$PKGM"
@@ -37,7 +42,7 @@ main() {
 		## etc
 		if [ $OS != "UBUNTU" ]; then
 			install code-minimap "$PKGM"
-		else
+    elif [ -z "$(which code-minimap)" ]; then
 			wget https://github.com/wfxr/code-minimap/releases/download/v0.6.4/code-minimap-v0.6.4-aarch64-unknown-linux-gnu.tar.gz
 			tar -xvf ./code-minimap-v0.6.4-aarch64-unknown-linux-gnu.tar.gz
 			sudo mkdir -p /opt/bin
