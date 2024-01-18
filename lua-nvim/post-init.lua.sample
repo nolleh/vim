@@ -1,0 +1,7 @@
+vim.g.pipemysql_login_info = {
+  {
+    description = "127.0.0.1",
+    mysql_username = "root",
+  },
+}
+
