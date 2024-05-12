@@ -37,6 +37,21 @@ M.general = {
     },
 
     ["<leader>ax"] = { ":%bd | e# | bd# | :NvimTreeToggle<CR>", "close all buf but current" },
+
+    --buf
+    ["tn"] = {
+      function()
+        require("nvchad.tabufline").tabuflineNext()
+      end,
+      "Goto next buffer",
+    },
+
+    ["tp"] = {
+      function()
+        require("nvchad.tabufline").tabuflinePrev()
+      end,
+      "Goto prev buffer",
+    },
   },
   v = {
     ["<leader><leader>r"] = { ":Jaq<CR>" },
