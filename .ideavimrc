@@ -57,6 +57,7 @@ map <C-N> :NERDTreeToggle<CR>
 nmap tn <action>(NextTab)
 nmap tp <action>(PreviousTab)
 
+map <leader>.z <action>(MaximizeEditorInSplit)
 
 nmap <leader>ff <action>(GotoFile)
 map <leader>bf <action>(RecentFiles)
