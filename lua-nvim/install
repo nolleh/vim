@@ -19,9 +19,9 @@ main() {
 		PKGM=$(getpkgm)
 		echo "install packages. pkgm $PKGM"
 
-    # node
-    install nodejs "$PKGM"
-    install npm "$PKGM"
+		# node
+		install nodejs "$PKGM"
+		install npm "$PKGM"
 
 		# pnpm
 		PNPM=$(which pnpm)
@@ -32,10 +32,13 @@ main() {
 			#npm --global add pnpm
 		fi
 
+		## for mason deps
+		install python3.12-venv "$PKGM"
+
 		## langs
 		install go "$PKGM"
 		install ccls "$PKGM"
-    install g++ "$PKGM"
+		install g++ "$PKGM"
 
 		## telescope
 		install ripgrep "$PKGM"
@@ -43,7 +46,7 @@ main() {
 		## etc
 		if [ $OS != "UBUNTU" ]; then
 			install code-minimap "$PKGM"
-    elif [ -z "$(which code-minimap)" ]; then
+		elif [ -z "$(which code-minimap)" ]; then
 			wget https://github.com/wfxr/code-minimap/releases/download/v0.6.4/code-minimap-v0.6.4-aarch64-unknown-linux-gnu.tar.gz
 			tar -xvf ./code-minimap-v0.6.4-aarch64-unknown-linux-gnu.tar.gz
 			sudo mkdir -p /opt/bin
@@ -82,21 +85,21 @@ install() {
 	case $2 in
 	'apt')
 		if ! dpkg -s "$1" >/dev/null 2>&1; then
-      echo -e "install.. \e[1;32m $1 \e[0m"
+			echo -e "install.. \e[1;32m $1 \e[0m"
 			sudo apt-get install "$1"
 		fi
 		;;
 	'brew')
 		INSTALLED=$(brew list "$1")
 		if [ -z "$INSTALLED" ]; then
-      echo -e "install.. \e[1;32m $1 \e[0m"
+			echo -e "install.. \e[1;32m $1 \e[0m"
 			brew install "$1"
 		fi
 		;;
 	'pnpm')
 		INSTALLED=$(pnpm list -g "$1")
 		if [ -z "$INSTALLED" ]; then
-      echo -e "install.. \e[1;32m $1 \e[0m"
+			echo -e "install.. \e[1;32m $1 \e[0m"
 			pnpm i -g "$1"
 		fi
 		;;
