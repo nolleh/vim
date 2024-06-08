@@ -57,3 +57,7 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   })
 end
+
+-- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+--     vim.api.nvim_set_hl(0, group, {})
+-- end

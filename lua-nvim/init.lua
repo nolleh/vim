@@ -21,6 +21,7 @@ set.expandtab = true
 -- vimwiki
 -- if clipboard not work, apt install xclip
 vim.cmd([[
+  set termguicolors
   set nocompatible
   filetype plugin on
   syntax on
