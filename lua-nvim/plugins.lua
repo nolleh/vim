@@ -114,10 +114,10 @@ local plugins = {
     end,
   },
 
-  { "vimwiki/vimwiki", lazy = false },
-  { "NLKNguyen/pipe.vim", cmd = { "PipeUse", "PipeToFile" } },
-  { "nolleh/pipe-mysql.vim", ft = { "sql", "mysql" }, dependencies = { "NLKNguyen/pipe.vim" } },
-  { "wfxr/minimap.vim", cmd = { "MinimapToggle" } },
+  { "vimwiki/vimwiki",       lazy = false },
+  { "NLKNguyen/pipe.vim",    cmd = { "PipeUse", "PipeToFile" } },
+  { "nolleh/pipe-mysql.vim", ft = { "sql", "mysql" },          dependencies = { "NLKNguyen/pipe.vim" } },
+  { "wfxr/minimap.vim",      cmd = { "MinimapToggle" } },
   -- ["chrisbra/Colorizer"] = {},
   {
     "iamcco/markdown-preview.nvim",
@@ -127,6 +127,7 @@ local plugins = {
     end,
     ft = { "markdown" },
   },
+  { "mtdl9/vim-log-highlighting", ft = { "log" } },
 }
 
 return plugins
