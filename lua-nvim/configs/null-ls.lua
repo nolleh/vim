@@ -32,6 +32,7 @@ local sources = {
       "**/*.kts",
     },
   }),
+  formatting.gersemi,
   -- diagnostics.eslint,
   -- diagnostics.tsc,
   -- code_actions.eslint,

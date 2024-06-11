@@ -99,6 +99,7 @@ local plugins = {
 
         -- c++
         "cmake-language-server",
+        "gersemi",
         "cpplint",
         "clang-format",
         "buf",
