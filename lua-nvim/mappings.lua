@@ -21,6 +21,57 @@ M.general = {
       "split lsp definition",
     },
 
+    -- lspsaga
+    ["<leader>lpra"] = {
+      "<cmd> Lspsaga rename <CR>",
+      "Lspsaga rename",
+    },
+
+    ["<leader>lpol"] = {
+      "<cmd> Lspsaga outline <CR>",
+      "Lspsaga outline",
+    },
+
+    ["<leader>lpci"] = {
+      "<cmd> Lspsaga incoming_calls <CR>",
+      "Lspsaga incoming calls",
+    },
+
+    ["<leader>lpco"] = {
+      "<cmd> Lspsaga outgoing_calls <CR>",
+      "Lspsaga outgoing calls",
+    },
+
+    ["<leader>lpca"] = {
+      "<cmd> Lspsaga code_action <CR>",
+      "Lspsaga code action",
+    },
+
+    ["<leader>lppd"] = {
+      "<cmd> Lspsaga peek_definition <CR>",
+      "Lspsaga peek definition",
+    },
+
+    ["<leader>lppt"] = {
+      "<cmd> Lspsaga peek_type_definition <CR>",
+      "Lspsaga peek type definition",
+    },
+
+    ["<leader>lp[e"] = {
+      "<cmd> Lspsaga diagnostic_jump_prev <CR>",
+      "Lspsaga diagnostic jump prev",
+    },
+
+    ["<leader>lp]e"] = {
+      "<cmd> Lspsaga diagnostic_jump_next <CR>",
+      "Lspsaga diagnostic jump next",
+    },
+
+    ["<leader>lpf"] = {
+      "<cmd> Lspsaga finder <CR>",
+      "Lspsaga finder",
+    },
+
     -- git
     ["<leader>cb"] = {
       "<cmd> Telescope git_bcommits <CR>",

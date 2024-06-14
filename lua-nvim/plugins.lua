@@ -114,7 +114,16 @@ local plugins = {
       require("custom.configs.jaq-nvim")
     end,
   },
-
+  {
+    "nvimdev/lspsaga.nvim", event = "LspAttach",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- optional
+      "nvim-tree/nvim-web-devicons",     -- optional
+    },
+  },
   { "vimwiki/vimwiki",       lazy = false },
   { "NLKNguyen/pipe.vim",    cmd = { "PipeUse", "PipeToFile" } },
   { "nolleh/pipe-mysql.vim", ft = { "sql", "mysql" },          dependencies = { "NLKNguyen/pipe.vim" } },
