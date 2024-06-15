@@ -3,13 +3,15 @@ if has("syntax")
     syntax on
 endif
 
+" colorscheme jellybeans
+
 set backspace=indent,eol,start  " more powerful backspacing
 set autoindent
 set cindent
 
 set nu
 
-colorscheme jellybeans
+
 set ts=2 " Tab width
 set shiftwidth=2 " indentations width when automatically occurred
 set expandtab " Expand TABs to spaces
@@ -27,14 +29,20 @@ setlocal cursorline
 set nocompatible
 filetype plugin on
 set encoding=UTF-8
-set foldmethod=syntax
+" set foldmethod=syntax
 " set foldmethod=indent
+set nofen
 
 " to make sure spacebar doesn't have any mapping beforehand
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 " let mapleader = ","
+"
+
+" split divider
+highlight VertSplit none
+highlight clear SignColumn
 
 " vim plugin
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -50,8 +58,12 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline_powerline_fonts = 1
 let g:tagbar_position = 'rightbelow'
 
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-svelte', 'coc-pyright', 'coc-css' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-svelte', 'coc-pyright', 'coc-css', 'coc-sh' ]
 let g:vim_svelte_plugin_use_typescript = 1
+
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 let g:ackprg = 'ag --vimgrep'
@@ -64,7 +76,6 @@ let g:ackprg = 'ag --vimgrep'
 " let g:mkdp_browserfunc = ''
 " let $NVIM_MKDP_LOG_FILE = $HOME . '/tmp/mkdp-log.log'
 " let $NVIM_MKDP_LOG_LEVEL = 'debug'
-
 let g:vimwiki_list = [{'path': '~/Documents/workspace_github/vimwiki/private/',
                       \ 'syntax': 'markdown', 'ext': '.md'},
                       \ {'path': '~/Documents/workspace_github/vimwiki/public/',
@@ -93,7 +104,6 @@ let g:quickrun_config = {
 let g:quickrun_config.html = { 'command' : 'open' }
 let g:quickrun_config.python = { 'command' : 'python3' }
 "}}} "
-
 autocmd FileType css setl iskeyword+=-
 
 function! s:resizeOnWinNew()
@@ -149,8 +159,8 @@ endfunction
 
 function! LexResize()
   wincmd t
-  :vertical resize45
-  :resize 40
+  :vertical resize35
+  :resize 25
   wincmd p
 endfunction
 
