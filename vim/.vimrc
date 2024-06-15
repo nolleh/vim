@@ -17,7 +17,7 @@ set expandtab " Expand TABs to spaces
 set laststatus=2 " show status bar
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
-set autoread " if file was modifed from extetern, read automatically
+set autoread " if file was modified from extetern, read automatically
 
 set re=0 " Use new regular expression engine
 set previewheight=20
