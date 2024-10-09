@@ -8,6 +8,7 @@ local plugins = {
       ensure_installed = {
         "bash",
         "css",
+        "scss",
         "json",
         "html",
         "svelte",
@@ -31,6 +32,7 @@ local plugins = {
         "kotlin",
         "mermaid",
         "markdown",
+        "markdown_inline"
       },
     },
   },
@@ -115,7 +117,8 @@ local plugins = {
     end,
   },
   {
-    "nvimdev/lspsaga.nvim", event = "LspAttach",
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
     config = function()
       require("lspsaga").setup({})
     end,
@@ -138,6 +141,7 @@ local plugins = {
     ft = { "markdown" },
   },
   { "mtdl9/vim-log-highlighting", ft = { "log" } },
+  { "github/copilot.vim",         event = { "BufReadPre", "BufNewFile" } },
 }
 
 return plugins

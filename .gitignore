@@ -1,2 +1,3 @@
 *.swp
 **/.netrwhist
+post-init.lua

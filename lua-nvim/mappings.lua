@@ -107,6 +107,17 @@ M.general = {
   v = {
     ["<leader><leader>r"] = { ":Jaq<CR>" },
   },
+  i = {
+    ["<C-g>"] = {
+      "copilot#Accept('<CR>')",
+      opts = {
+        noremap = true,
+        expr = true,
+        silent = true,
+        replace_keycodes = false,
+      },
+    },
+  },
 }
 
 return M

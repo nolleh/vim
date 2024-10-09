@@ -10,7 +10,7 @@ local capabilities = configs.capabilities
 local servers = {
   "html",
   "cssls",
-  "tsserver",
+  "ts_ls",
   "pyright",
   "svelte",
   "bashls",
