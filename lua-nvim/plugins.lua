@@ -120,7 +120,7 @@ local plugins = {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
     config = function()
-      require("lspsaga").setup({})
+      require("custom.configs.lsp-saga")
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional

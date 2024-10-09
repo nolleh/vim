@@ -72,6 +72,16 @@ M.general = {
       "Lspsaga finder",
     },
 
+    ["<leader>lpk"] = {
+      "<cmd> Lspsaga hover_doc <CR>",
+      "Lspsaga hover doc",
+    },
+    
+    ["<leader>lpK"] = {
+      "<cmd> Lspsaga hover_doc ++keep <CR>",
+      "Lspsaga hover doc keep",
+    },
+
     -- git
     ["<leader>cb"] = {
       "<cmd> Telescope git_bcommits <CR>",
