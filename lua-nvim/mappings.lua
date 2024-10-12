@@ -10,6 +10,7 @@ M.general = {
     ["<leader>.z"] = { ":ZoomToggle<CR>" },
     ["<leader>mm"] = { ":MinimapToggle<CR>" },
     ["<leader>cd"] = { ":cd %:h<CR>:pwd<CR>" },
+    ["<leader>c-"] = { ":cd -<CR>"},
 
     -- lsp
     ["gv"] = {
@@ -22,62 +23,62 @@ M.general = {
     },
 
     -- lspsaga
-    ["<leader>lpra"] = {
+    ["<leader>lra"] = {
       "<cmd> Lspsaga rename <CR>",
       "Lspsaga rename",
     },
 
-    ["<leader>lpol"] = {
+    ["<leader>lol"] = {
       "<cmd> Lspsaga outline <CR>",
       "Lspsaga outline",
     },
 
-    ["<leader>lpci"] = {
+    ["<leader>lci"] = {
       "<cmd> Lspsaga incoming_calls <CR>",
       "Lspsaga incoming calls",
     },
 
-    ["<leader>lpco"] = {
+    ["<leader>lco"] = {
       "<cmd> Lspsaga outgoing_calls <CR>",
       "Lspsaga outgoing calls",
     },
 
-    ["<leader>lpca"] = {
+    ["<leader>lca"] = {
       "<cmd> Lspsaga code_action <CR>",
       "Lspsaga code action",
     },
 
-    ["<leader>lppd"] = {
+    ["<leader>lpd"] = {
       "<cmd> Lspsaga peek_definition <CR>",
       "Lspsaga peek definition",
     },
 
-    ["<leader>lppt"] = {
+    ["<leader>lpt"] = {
       "<cmd> Lspsaga peek_type_definition <CR>",
       "Lspsaga peek type definition",
     },
 
-    ["<leader>lp[e"] = {
+    ["<leader>l[e"] = {
       "<cmd> Lspsaga diagnostic_jump_prev <CR>",
       "Lspsaga diagnostic jump prev",
     },
 
-    ["<leader>lp]e"] = {
+    ["<leader>l]e"] = {
       "<cmd> Lspsaga diagnostic_jump_next <CR>",
       "Lspsaga diagnostic jump next",
     },
 
-    ["<leader>lpf"] = {
+    ["<leader>lf"] = {
       "<cmd> Lspsaga finder <CR>",
       "Lspsaga finder",
     },
 
-    ["<leader>lpk"] = {
+    ["<leader>lk"] = {
       "<cmd> Lspsaga hover_doc <CR>",
       "Lspsaga hover doc",
     },
     
-    ["<leader>lpK"] = {
+    ["<leader>lK"] = {
       "<cmd> Lspsaga hover_doc ++keep <CR>",
       "Lspsaga hover doc keep",
     },

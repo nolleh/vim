@@ -14,10 +14,10 @@ local set = vim.opt
 set.ts = 2
 set.shiftwidth = 2
 set.expandtab = true
+
 -- set.spell = true
 --set.foldmethod = syntax
 --vim.g.autosave = true
-
 -- vimwiki
 -- if clipboard not work, apt install xclip
 vim.cmd([[
@@ -26,6 +26,7 @@ vim.cmd([[
   filetype plugin on
   syntax on
   set clipboard+=unnamedplus
+  set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
 ]])
 vim.g.vimwiki_ext2syntax = vim.empty_dict()
 
@@ -113,7 +114,7 @@ vim.api.nvim_create_user_command("ZoomToggle", ZoomToggle, {})
 --    See `:help CursorHold` for information about when this is executed
 --
 -- When you move your cursor, the highlights will be cleared (the second autocommand).
--- 
+--
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
