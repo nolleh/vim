@@ -32,7 +32,7 @@ local plugins = {
         "kotlin",
         "mermaid",
         "markdown",
-        "markdown_inline"
+        "markdown_inline",
       },
     },
   },
@@ -142,6 +142,26 @@ local plugins = {
   },
   { "mtdl9/vim-log-highlighting", ft = { "log" } },
   { "github/copilot.vim",         event = { "BufReadPre", "BufNewFile" } },
+  -- {
+  --   "3rd/diagram.nvim",
+  --   ft = { "markdown" },
+  --   dependencies = {
+  --     "3rd/image.nvim",
+  --   },
+  --   config = function()
+  --     require("custom.configs.diagram")
+  --   end,
+  -- },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
 }
 
 return plugins
