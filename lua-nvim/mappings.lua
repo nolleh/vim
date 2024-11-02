@@ -10,7 +10,7 @@ M.general = {
     ["<leader>.z"] = { ":ZoomToggle<CR>" },
     ["<leader>mm"] = { ":MinimapToggle<CR>" },
     ["<leader>cd"] = { ":cd %:h<CR>:pwd<CR>" },
-    ["<leader>c-"] = { ":cd -<CR>"},
+    ["<leader>c-"] = { ":cd -<CR>" },
 
     -- lsp
     ["gv"] = {
@@ -77,7 +77,7 @@ M.general = {
       "<cmd> Lspsaga hover_doc <CR>",
       "Lspsaga hover doc",
     },
-    
+
     ["<leader>lK"] = {
       "<cmd> Lspsaga hover_doc ++keep <CR>",
       "Lspsaga hover doc keep",
@@ -89,14 +89,20 @@ M.general = {
       "Git commits on current buffer",
     },
 
-    ["<leader>cl"] = {
-      function()
-        require("telescope.builtin").git_commits({
-          git_command = { "git", "log", "--pretty=oneline", "--graph", "--decorate", "--abbrev-commit", "--", "." },
-        })
-      end,
-      "Git commit log with graph",
+    ["<leader>gl"] = {
+      "<cmd> Jaq float git log --all --graph --pretty=format:'%Cgreen%ad%Creset %C(auto)%h%d %s %C(bold black)<%aN>%Creset' --date=format-local:'%Y-%m-%d %H:%M (%a)' <CR>",
+      "Git graph with pretty tag"
     },
+
+    -- ["<leader>cl"] = {
+    --   function()
+    --     require("telescope.builtin").git_commits({
+    --       -- git_command = { "git", "log", "--pretty=oneline", "--graph", "--decorate", "--abbrev-commit", "--", "." },
+    --       git_command = { "git", "log", "--all", "--graph", "--pretty=format:'%Cgreen%ad%Creset %C(auto)%h%d %s %C(bold black)<%aN>%Creset'", "--date=format-local:'%Y-%m-%d %H:%M (%a)'" }
+    --     })
+    --   end,
+    --   "Git commit log with graph",
+    -- },
 
     ["<leader>ax"] = { ":%bd | e# | bd# | :NvimTreeToggle<CR>", "close all buf but current" },
 
