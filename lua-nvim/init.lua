@@ -28,6 +28,21 @@ vim.cmd([[
   set clipboard+=unnamedplus
   set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
 ]])
+
+local brew = os.getenv('BREW')
+vim.g.python3_host_prog = brew .. "/python3"
+
+local enable_providers = {
+  "python3_provider",
+  "node_provider",
+  -- and so on
+}
+
+for _, plugin in pairs(enable_providers) do
+  vim.g["loaded_" .. plugin] = nil
+  vim.cmd("runtime " .. plugin)
+end
+
 vim.g.vimwiki_ext2syntax = vim.empty_dict()
 
 -- }}}
@@ -70,6 +85,7 @@ vim.cmd([[
   hi MinimapCurrentLine ctermfg=Green guifg=#50FA7B guibg=#32302f
   let g:minimap_cursor_color = 'MinimapCurrentLine'
 ]])
+
 
 -- Augroups: {{{
 local augroup = vim.api.nvim_create_augroup
