@@ -29,8 +29,16 @@ vim.cmd([[
   set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
 ]])
 
-local brew = os.getenv('BREW')
-vim.g.python3_host_prog = brew .. "/python3"
+local function system(command)
+    local file = assert(io.popen(command, 'r'))
+    local output = file:read('*all'):gsub("%s+", "")
+    file:close()
+    return output
+end
+
+-- local brew = os.getenv('BREW')
+-- vim.g.python3_host_prog = brew .. "/python3"
+vim.g.python3_host_prog = system("which python3")
 
 local enable_providers = {
   "python3_provider",
