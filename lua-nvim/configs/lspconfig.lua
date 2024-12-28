@@ -6,7 +6,7 @@ local capabilities = configs.capabilities
 -- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- server_configurations
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 local servers = {
   "html",
   "cssls",
@@ -19,6 +19,7 @@ local servers = {
   "cmake",
   "ccls",
   "kotlin_language_server",
+  "jsonls"
 }
 
 local util = require("lspconfig/util")

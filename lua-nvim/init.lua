@@ -30,10 +30,10 @@ vim.cmd([[
 ]])
 
 local function system(command)
-    local file = assert(io.popen(command, 'r'))
-    local output = file:read('*all'):gsub("%s+", "")
-    file:close()
-    return output
+  local file = assert(io.popen(command, 'r'))
+  local output = file:read('*all'):gsub("%s+", "")
+  file:close()
+  return output
 end
 
 -- local brew = os.getenv('BREW')
@@ -150,11 +150,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     if client and client.server_capabilities.documentHighlightProvider then
       local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
-      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-        buffer = event.buf,
-        group = highlight_augroup,
-        callback = vim.lsp.buf.document_highlight,
-      })
+      if client and client.server_capabilities.codeActionProvider then
+      -- local bufnr = vim.api.nvim_get_current_buf()
+      -- if client and client.supports_method("textDocument/CodeAction", bufnr) then
+        vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+          buffer = event.buf,
+          group = highlight_augroup,
+          callback = vim.lsp.buf.document_highlight,
+        })
+      end
 
       vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
         buffer = event.buf,
