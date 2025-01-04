@@ -88,8 +88,7 @@ local plugins = {
         "prisma-language-server",
         "json-lsp",
         "prettier",
-        "kotlin-language-server",
-        "ktlint",
+        "tailwindcss-language-server",
 
         -- shell
         "shfmt",
@@ -99,6 +98,8 @@ local plugins = {
         "black",
         "gopls",
         "helm-ls",
+        "kotlin-language-server",
+        "ktlint",
 
         -- c++
         "cmake-language-server",

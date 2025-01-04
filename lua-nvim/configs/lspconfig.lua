@@ -19,7 +19,8 @@ local servers = {
   "cmake",
   "ccls",
   "kotlin_language_server",
-  "jsonls"
+  "jsonls",
+  "tailwindcss"
 }
 
 local util = require("lspconfig/util")
