@@ -42,6 +42,7 @@ export -f install
 export FILE=""
 export CONF=false
 export PACKAGE=false
+export NVCHAD_V3=false
 
 opts() {
 	while (("$#")); do
@@ -63,6 +64,10 @@ opts() {
 			PACKAGE=true
 			shift
 			;;
+    -v3 | --nvchad-v3)
+      NVCHAD_V3=true
+      shift
+      ;;
 		-h | --help)
 			echo "Usage:  $0 -i <input> [options]" >&2
 			echo "        -f | --file  %  (passed file will be attached in init.lua)" >&2

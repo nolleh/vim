@@ -61,7 +61,7 @@ local plugins = {
     },
 
     config = function()
-      require("plugins.configs.lspconfig")
+      require("configs.lspconfig")
       require("custom.configs.lspconfig")
     end,
   },

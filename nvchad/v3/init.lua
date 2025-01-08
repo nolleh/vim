@@ -30,8 +30,8 @@ vim.cmd([[
 ]])
 
 local function system(command)
-  local file = assert(io.popen(command, 'r'))
-  local output = file:read('*all'):gsub("%s+", "")
+  local file = assert(io.popen(command, "r"))
+  local output = file:read("*all"):gsub("%s+", "")
   file:close()
   return output
 end
@@ -94,7 +94,6 @@ vim.cmd([[
   let g:minimap_cursor_color = 'MinimapCurrentLine'
 ]])
 
-
 -- Augroups: {{{
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -148,15 +147,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.inlay_hint.enable(true)
     end
 
-    if (client) then
-      print(vim.inspect(client.server_capabilities))
-    end
+    -- if (client) then
+    --   print(vim.inspect(client.server_capabilities))
+    -- end
 
     if client and client.server_capabilities.documentHighlightProvider then
       local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
       if client and client.server_capabilities.codeActionProvider then
-      -- local bufnr = vim.api.nvim_get_current_buf()
-      -- if client and client.supports_method("textDocument/CodeAction", bufnr) then
+        -- local bufnr = vim.api.nvim_get_current_buf()
+        -- if client and client.supports_method("textDocument/CodeAction", bufnr) then
         vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
           buffer = event.buf,
           group = highlight_augroup,

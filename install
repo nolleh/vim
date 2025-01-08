@@ -2,12 +2,19 @@
 
 set -e
 
+[ -f ./os ] && source ./os
+[ -f ./func ] && source ./func
+opts "$@"
+
 echo "install nvim-config"
-cd ./lua-nvim && ./install "$@" && cd ..
+if [ $NVCHAD_V3 == true ]; then
+  cd ./nvchad/v3 && ./install "$@" && cd -
+else
+  cd ./lua-nvim && ./install "$@" && cd -
+fi
 echo "done: install nvim-config"
 
-echo "install vimrc"
-[ -f ../os ] && source ../os
+echo "install vimrc, from $PWD"
 
 cp -r ./vim/.vim/ ~/
 
@@ -18,16 +25,15 @@ case "$OS" in
 	;;
 "UBUNTU")
 	echo "found as ubuntu. cp ubuntu rc files.."
-	cp ./vim/.vimrc-ubuntu ~/.vimrc
+  if [ -f ./vim/.vimrc-ubuntu ]; then
+	  cp ./vim/.vimrc-ubuntu ~/.vimrc
+  fi
 	;;
 **)
 	echo "unknown os"
 	;;
 esac
 
-source ./func
-
-opts "$@"
 if [ $PACKAGE = true ]; then
 	PKGM=$(getpkgm)
 	echo "pkgm $PKGM"
