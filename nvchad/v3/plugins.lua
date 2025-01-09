@@ -126,13 +126,13 @@ local plugins = {
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
-      "nvim-tree/nvim-web-devicons",     -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
     },
   },
-  { "vimwiki/vimwiki",       lazy = false },
-  { "NLKNguyen/pipe.vim",    cmd = { "PipeUse", "PipeToFile" } },
-  { "nolleh/pipe-mysql.vim", ft = { "sql", "mysql" },          dependencies = { "NLKNguyen/pipe.vim" } },
-  { "wfxr/minimap.vim",      cmd = { "MinimapToggle" } },
+  { "vimwiki/vimwiki", lazy = false },
+  { "NLKNguyen/pipe.vim", cmd = { "PipeUse", "PipeToFile" } },
+  { "nolleh/pipe-mysql.vim", ft = { "sql", "mysql" }, dependencies = { "NLKNguyen/pipe.vim" } },
+  { "wfxr/minimap.vim", cmd = { "MinimapToggle" } },
   -- ["chrisbra/Colorizer"] = {},
   {
     "iamcco/markdown-preview.nvim",
@@ -143,7 +143,7 @@ local plugins = {
     ft = { "markdown" },
   },
   { "mtdl9/vim-log-highlighting", ft = { "log" } },
-  { "github/copilot.vim",         event = { "BufReadPre", "BufNewFile" } },
+  { "github/copilot.vim", event = { "BufReadPre", "BufNewFile" } },
   -- {
   --   "3rd/diagram.nvim",
   --   ft = { "markdown" },
@@ -190,7 +190,7 @@ local plugins = {
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",      -- for providers='copilot'
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
