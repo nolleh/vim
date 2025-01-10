@@ -53,12 +53,12 @@ local plugins = {
   -- "jose-elias-alvarez/null-ls.nvim",
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      "nolleh/null-ls.nvim",
-      config = function()
-        require("custom.configs.null-ls")
-      end,
-    },
+    -- dependencies = {
+    --   "nolleh/null-ls.nvim",
+    --   config = function()
+    --     require("custom.configs.null-ls")
+    --   end,
+    -- },
 
     config = function()
       require("configs.lspconfig")
@@ -68,6 +68,7 @@ local plugins = {
 
   {
     "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate", "MasonUninstall", "MasonUninstallAll" },
     opts = {
       ensure_installed = {
         "codespell",
@@ -109,6 +110,17 @@ local plugins = {
         "buf",
       },
     },
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "mason")
+      require("mason").setup(opts)
+
+      -- custom cmd to install all mason binaries listed
+      vim.api.nvim_create_user_command("MasonInstallAll", function()
+        if opts.ensure_installed and #opts.ensure_installed > 0 then
+          vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
+        end
+      end, {})
+    end,
   },
 
   {
@@ -217,6 +229,21 @@ local plugins = {
         ft = { "markdown", "Avante" },
       },
     },
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+    config = function()
+      require("custom.configs.ibl")
+    end,
+  },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = { "BufReadPost", "BufNewFile" },
   },
 }
 

@@ -148,10 +148,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.inlay_hint.enable(true)
     end
 
-    if (client) then
-      print(vim.inspect(client.server_capabilities))
-    end
-
     if client and client.server_capabilities.documentHighlightProvider then
       local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
       if client and client.server_capabilities.codeActionProvider then
