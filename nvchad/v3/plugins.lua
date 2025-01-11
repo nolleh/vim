@@ -141,7 +141,15 @@ local plugins = {
       "nvim-tree/nvim-web-devicons", -- optional
     },
   },
-  { "vimwiki/vimwiki", lazy = false },
+  {
+    "vimwiki/vimwiki",
+    lazy = false,
+    config = function()
+      -- register markdown as parser for vimwiki files
+      vim.treesitter.language.register("markdown", "vimwiki")
+    end,
+  },
+
   { "NLKNguyen/pipe.vim", cmd = { "PipeUse", "PipeToFile" } },
   { "nolleh/pipe-mysql.vim", ft = { "sql", "mysql" }, dependencies = { "NLKNguyen/pipe.vim" } },
   { "wfxr/minimap.vim", cmd = { "MinimapToggle" } },
@@ -168,7 +176,7 @@ local plugins = {
   -- },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "Avante" },
+    ft = { "markdown", "Avante", "vimwiki" },
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
@@ -224,9 +232,9 @@ local plugins = {
         -- Make sure to set this up properly if you have lazy=true
         "MeanderingProgrammer/render-markdown.nvim",
         opts = {
-          file_types = { "markdown", "Avante" },
+          file_types = { "markdown", "Avante", "vimwiki" },
         },
-        ft = { "markdown", "Avante" },
+        ft = { "markdown", "Avante", "vimwiki" },
       },
     },
   },

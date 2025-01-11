@@ -12,7 +12,7 @@ if [ ! -e "$HOME/.config/nvim" ]; then
 fi
 
 INSTALL_PATH=$HOME/.config/nvim/lua/custom
-mkdir -p $INSTALL_PATH
+mkdir -p "$INSTALL_PATH"
 
 main() {
 	cp -r ./* "$INSTALL_PATH"
