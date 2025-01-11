@@ -141,14 +141,14 @@ local plugins = {
       "nvim-tree/nvim-web-devicons", -- optional
     },
   },
-  {
-    "vimwiki/vimwiki",
-    lazy = false,
-    config = function()
-      -- register markdown as parser for vimwiki files
-      vim.treesitter.language.register("markdown", "vimwiki")
-    end,
-  },
+  -- {
+  --   "vimwiki/vimwiki",
+  --   lazy = false,
+  --   config = function()
+  --     -- register markdown as parser for vimwiki files
+  --     vim.treesitter.language.register("markdown", "vimwiki")
+  --   end,
+  -- },
 
   { "NLKNguyen/pipe.vim", cmd = { "PipeUse", "PipeToFile" } },
   { "nolleh/pipe-mysql.vim", ft = { "sql", "mysql" }, dependencies = { "NLKNguyen/pipe.vim" } },
@@ -253,6 +253,47 @@ local plugins = {
     "HiPhish/rainbow-delimiters.nvim",
     event = { "BufReadPost", "BufNewFile" },
   },
+
+  {
+    "3rd/image.nvim",
+    build = false,
+    opts = {},
+    config = function()
+      require("custom.configs.image")
+    end,
+  },
+
+  -- {
+  --   "3rd/diagram.nvim",
+  --   lazy = false,
+  --   dependencies = {
+  --     "3rd/image.nvim",
+  --   },
+  --   opts = { -- you can just pass {}, defaults below
+  --     renderer_options = {
+  --       mermaid = {
+  --         background = nil, -- nil | "transparent" | "white" | "#hex"
+  --         theme = nil, -- nil | "default" | "dark" | "forest" | "neutral"
+  --         scale = 1, -- nil | 1 (default) | 2  | 3 | ...
+  --         width = nil, -- nil | 800 | 400 | ...
+  --         height = nil, -- nil | 600 | 300 | ...
+  --       },
+  --       plantuml = {
+  --         charset = nil,
+  --       },
+  --       d2 = {
+  --         theme_id = nil,
+  --         dark_theme_id = nil,
+  --         scale = nil,
+  --         layout = nil,
+  --         sketch = nil,
+  --       },
+  --     },
+  --   },
+  --   config = function()
+  --     require("custom.configs.diagram")
+  --   end,
+  -- },
 }
 
 return plugins
