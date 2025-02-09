@@ -33,6 +33,7 @@ local plugins = {
         "mermaid",
         "markdown",
         "markdown_inline",
+        "c_sharp"
       },
     },
   },
@@ -107,6 +108,8 @@ local plugins = {
         "cpplint",
         "clang-format",
         "buf",
+
+        "csharp-language-server"
       },
     },
   },

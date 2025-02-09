@@ -20,7 +20,8 @@ local servers = {
   "ccls",
   "kotlin_language_server",
   "jsonls",
-  "tailwindcss"
+  "tailwindcss",
+  "csharp_ls"
 }
 
 local util = require("lspconfig/util")
