@@ -19,7 +19,7 @@ local servers = {
   "kotlin_language_server",
   "jsonls",
   "tailwindcss",
-  "csharp_ls"
+  "omnisharp"
 }
 
 local util = require("lspconfig/util")
@@ -53,12 +53,20 @@ for _, lsp in ipairs(servers) do
       if lsp == "ccls" then
         config = require("custom.configs.ccls").config
       end
+      if lsp == "omnisharp" then
+        config = require("custom.configs.omnisharp").config
+      end
     end,
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
   })
 end
+
+-- possible not working with environment variable
+lspconfig.omnisharp.setup({
+  cmd = { "dotnet", "$MASON/packages/omnisharp/libexec/OmniSharp.dll"}
+})
 
 -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 --     vim.api.nvim_set_hl(0, group, {})
