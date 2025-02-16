@@ -27,6 +27,7 @@ vim.cmd([[
   syntax on
   set clipboard+=unnamedplus
   set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
+  set list listchars=tab:>-,eol:$,space:·
 ]])
 
 local function system(command)
