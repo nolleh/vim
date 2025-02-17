@@ -63,7 +63,7 @@ for _, lsp in ipairs(servers) do
   })
 end
 
--- possible not working with environment variable
+-- possible not working with environment variable --> you should replace it's home dir.
 lspconfig.omnisharp.setup({
   cmd = { "dotnet", "$MASON/packages/omnisharp/libexec/OmniSharp.dll"}
 })
