@@ -120,6 +120,46 @@ M.general = {
       end,
       "Goto prev buffer",
     },
+
+    ["<leader>dc"] = {
+      function()
+        require("dap").continue()
+      end, "dap continue",
+    },
+    ["<leader>dl"] = {
+      function()
+        require("dap").run_last()
+      end, "dap run last",
+    },
+
+    ["<leader>db"] = {
+      function()
+        require("dap").toggle_breakpoint()
+      end, "dap toggle breakpoint"
+    },
+    ["<leader>ds"] = {
+      function()
+        require("dap").step_over()
+      end, "dap step over"
+    },
+
+    ["<leader>di"] = {
+      function()
+        require("dap").step_into()
+      end, "dap step into"
+    },
+
+    ["<leader>do"] = {
+      function()
+        require("dap").step_out()
+      end, "dap step out"
+    },
+
+    ["<leader>dt"] = {
+      function()
+        require("dapui").toggle()
+      end, "dap toggle ui"
+    },
   },
   v = {
     ["<leader><leader>r"] = { ":Jaq<CR>" },

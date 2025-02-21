@@ -24,6 +24,7 @@ main() {
     # node
     install nodejs "$PKGM"
     install npm "$PKGM"
+    install delve "$PKGM" 
 
     # pnpm
     PNPM=$(which pnpm)
