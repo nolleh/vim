@@ -62,6 +62,12 @@ for _, lsp in ipairs(servers) do
   })
 end
 
+local mason = require('custom.utils').runsys('echo $MASON')
+lspconfig.omnisharp.setup({
+  cmd = { "dotnet", mason .. "/packages/omnisharp/libexec/OmniSharp.dll" },
+  settings = require("custom.configs.omnisharp").config
+})
+
 -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 --     vim.api.nvim_set_hl(0, group, {})
 -- end

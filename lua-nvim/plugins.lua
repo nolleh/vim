@@ -109,7 +109,10 @@ local plugins = {
         "clang-format",
         "buf",
 
-        "csharp-language-server"
+        -- c#
+        "csharp-language-server",
+        "omnisharp",
+        "csharpier"
       },
     },
   },
@@ -254,6 +257,7 @@ local plugins = {
         },
       },
       "leoluz/nvim-dap-go",
+      "Cliffback/netcoredbg-macOS-arm64.nvim",
       "theHamsta/nvim-dap-virtual-text"
     },
     cmd = {

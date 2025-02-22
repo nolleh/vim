@@ -76,3 +76,24 @@ local lldb = {
 require('dap').configurations.rust = {
   lldb
 }
+
+require('netcoredbg-macOS-arm64').setup(require('dap'))
+
+require('dap').configuration.cs = {
+  type = "coreclr",
+  name = "launch - netcoredbg",
+  request = "launch",
+  justMyCode = false,
+  stopOnEntry = false,
+  program = function()
+    return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/", "file")
+  end,
+  env = {
+    ASPNETCORE_ENVIRONMENT = function()
+      return "Development"
+    end,
+    ASPNETCORE_URLS = function()
+      return "http://localhost:5050"
+    end,
+  },
+}

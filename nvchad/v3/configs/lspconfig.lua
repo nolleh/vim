@@ -61,9 +61,9 @@ for _, lsp in ipairs(servers) do
   })
 end
 
--- possible not working with environment variable --> you should replace it's home dir.
+local mason = require('custom.utils').runsys('echo $MASON')
 lspconfig.omnisharp.setup({
-  cmd = { "dotnet", "$MASON/packages/omnisharp/libexec/OmniSharp.dll" },
+  cmd = { "dotnet", mason .. "/packages/omnisharp/libexec/OmniSharp.dll" },
   settings = require("custom.configs.omnisharp").config
 })
 
