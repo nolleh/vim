@@ -12,21 +12,22 @@ install() {
 	case $2 in
 	'apt')
 		if ! dpkg -s "$1" >/dev/null 2>&1; then
-      echo -e "install.. \e[1;32m $1 \e[0m"
+			echo -e "install.. \e[1;32m $1 \e[0m"
 			sudo apt-get install "$1"
 		fi
 		;;
 	'brew')
-		INSTALLED=$(brew list "$1")
+		INSTALLED=! type "$1" >/dev/null 2>&1
+		echo "$INSTALLED"
 		if [ -z "$INSTALLED" ]; then
-      echo -e "install.. \e[1;32m $1 \e[0m"
+			echo -e "install.. \e[1;32m $1 \e[0m"
 			brew install "$1"
 		fi
 		;;
 	'pnpm')
 		INSTALLED=$(pnpm list -g "$1")
 		if [ -z "$INSTALLED" ]; then
-      echo -e "install.. \e[1;32m $1 \e[0m"
+			echo -e "install.. \e[1;32m $1 \e[0m"
 			pnpm i -g "$1"
 		fi
 		;;
@@ -43,6 +44,8 @@ export FILE=""
 export CONF=false
 export PACKAGE=false
 export NVCHAD_V3=false
+export TMUX=false
+export ZELLIJ=false
 
 opts() {
 	while (("$#")); do
@@ -64,10 +67,18 @@ opts() {
 			PACKAGE=true
 			shift
 			;;
-    -v3 | --nvchad-v3)
-      NVCHAD_V3=true
-      shift
-      ;;
+		-v3 | --nvchad-v3)
+			NVCHAD_V3=true
+			shift
+			;;
+		-t | --tmux)
+			TMUX=true
+			shift
+			;;
+		-z | --zellij)
+			ZELLIJ=true
+			shift
+			;;
 		-h | --help)
 			echo "Usage:  $0 -i <input> [options]" >&2
 			echo "        -f | --file  %  (passed file will be attached in init.lua)" >&2

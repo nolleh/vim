@@ -91,7 +91,7 @@ M.general = {
 
     ["<leader>gl"] = {
       "<cmd> Jaq float git log --all --graph --pretty=format:'%Cgreen%ad%Creset %C(auto)%h%d %s %C(bold black)<%aN>%Creset' --date=format-local:'%Y-%m-%d %H:%M (%a)' <CR>",
-      "Git graph with pretty tag"
+      "Git graph with pretty tag",
     },
 
     -- ["<leader>cl"] = {
@@ -124,41 +124,48 @@ M.general = {
     ["<leader>dc"] = {
       function()
         require("dap").continue()
-      end, "dap continue",
+      end,
+      "dap continue",
     },
     ["<leader>dl"] = {
       function()
         require("dap").run_last()
-      end, "dap run last",
+      end,
+      "dap run last",
     },
 
     ["<leader>db"] = {
       function()
         require("dap").toggle_breakpoint()
-      end, "dap toggle breakpoint"
+      end,
+      "dap toggle breakpoint",
     },
     ["<leader>ds"] = {
       function()
         require("dap").step_over()
-      end, "dap step over"
+      end,
+      "dap step over",
     },
 
     ["<leader>di"] = {
       function()
         require("dap").step_into()
-      end, "dap step into"
+      end,
+      "dap step into",
     },
 
     ["<leader>do"] = {
       function()
         require("dap").step_out()
-      end, "dap step out"
+      end,
+      "dap step out",
     },
 
     ["<leader>dt"] = {
       function()
         require("dapui").toggle()
-      end, "dap toggle ui"
+      end,
+      "dap toggle ui",
     },
   },
   v = {

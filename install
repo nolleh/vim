@@ -8,9 +8,9 @@ opts "$@"
 
 echo "install nvim-config"
 if [ $NVCHAD_V3 == true ]; then
-  cd ./nvchad/v3 && ./install "$@" && cd -
+	cd ./nvchad/v3 && ./install "$@" && cd -
 else
-  cd ./lua-nvim && ./install "$@" && cd -
+	cd ./lua-nvim && ./install "$@" && cd -
 fi
 echo "done: install nvim-config"
 
@@ -25,9 +25,9 @@ case "$OS" in
 	;;
 "UBUNTU")
 	echo "found as ubuntu. cp ubuntu rc files.."
-  if [ -f ./vim/.vimrc-ubuntu ]; then
-	  cp ./vim/.vimrc-ubuntu ~/.vimrc
-  fi
+	if [ -f ./vim/.vimrc-ubuntu ]; then
+		cp ./vim/.vimrc-ubuntu ~/.vimrc
+	fi
 	;;
 **)
 	echo "unknown os"

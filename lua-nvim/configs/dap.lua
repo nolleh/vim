@@ -2,11 +2,10 @@ local dap = require("dap")
 dap.adapters.lldb = {
   type = "executable",
   command = "/usr/bin/lldb",
-  name = "lldb"
+  name = "lldb",
 }
 
 require("dap-go").setup()
-
 
 require("nvim-dap-virtual-text").setup({})
 vim.g.dap_virtual_text = true
@@ -14,7 +13,6 @@ vim.g.dap_virtual_text = true
 -- require("persistent-breakpoints").setup({
 --   load_breakpoints_event = { "BufReadPost" }
 -- })
-
 
 local dapui = require("dapui")
 dapui.setup()
@@ -41,24 +39,30 @@ end
 
 local set_namespace = vim.api.nvim__set_hl_ns or vim.api.nvim_set_hl_ns
 local namespace = vim.api.nvim_create_namespace("dap-hlng")
-vim.api.nvim_set_hl(namespace, 'DapBreakpoint', { fg='#eaeaeb', bg='#ffffff' })
-vim.api.nvim_set_hl(namespace, 'DapLogPoint', { fg='#eaeaeb', bg='#ffffff' })
-vim.api.nvim_set_hl(namespace, 'DapStopped', { fg='#eaeaeb', bg='#ffffff' })
+vim.api.nvim_set_hl(namespace, "DapBreakpoint", { fg = "#eaeaeb", bg = "#ffffff" })
+vim.api.nvim_set_hl(namespace, "DapLogPoint", { fg = "#eaeaeb", bg = "#ffffff" })
+vim.api.nvim_set_hl(namespace, "DapStopped", { fg = "#eaeaeb", bg = "#ffffff" })
 
-vim.fn.sign_define('DapBreakpoint', {
-  text = '🔴',
+vim.fn.sign_define("DapBreakpoint", {
+  text = "🔴",
   -- text = '',
-  texthl = 'DapBreakpoint',
-  linehl = 'DapBreakpoint',
-  numhl =
-  'DapBreakpoint'
+  texthl = "DapBreakpoint",
+  linehl = "DapBreakpoint",
+  numhl = "DapBreakpoint",
 })
-vim.fn.sign_define('DapBreakpointCondition',
-  { text = 'ﳁ', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
-vim.fn.sign_define('DapBreakpointRejected',
-  { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
-vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' })
-vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
+vim.fn.sign_define(
+  "DapBreakpointCondition",
+  { text = "ﳁ", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define(
+  "DapBreakpointRejected",
+  { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define(
+  "DapLogPoint",
+  { text = "", texthl = "DapLogPoint", linehl = "DapLogPoint", numhl = "DapLogPoint" }
+)
+vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" })
 
 local lldb = {
   name = "Launch lldb",
@@ -70,16 +74,16 @@ local lldb = {
   cwd = "${workspaceFolder}",
   stopOnEntry = false,
   args = {},
-  runInTerminal = false
+  runInTerminal = false,
 }
 
-require('dap').configurations.rust = {
-  lldb
+require("dap").configurations.rust = {
+  lldb,
 }
 
-require('netcoredbg-macOS-arm64').setup(require('dap'))
+require("netcoredbg-macOS-arm64").setup(require("dap"))
 
-require('dap').configuration.cs = {
+require("dap").configuration.cs = {
   type = "coreclr",
   name = "launch - netcoredbg",
   request = "launch",

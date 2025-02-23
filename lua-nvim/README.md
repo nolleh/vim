@@ -1,5 +1,5 @@
-based on NvChad,  
-neovim environment.  
+based on NvChad,
+neovim environment.
 
 ./install
 

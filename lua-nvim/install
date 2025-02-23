@@ -43,8 +43,8 @@ main() {
 		## telescope
 		install ripgrep "$PKGM"
 
-    ## pre-commit
-    install shfmt "$PKGM"
+		## pre-commit
+		install shfmt "$PKGM"
 
 		## etc
 		if [ $OS != "UBUNTU" ]; then

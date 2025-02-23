@@ -1,7 +1,7 @@
 -- https://github.com/yetone/avante.nvim/blob/main/lua/avante/config.lua
 require("avante").setup({
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-  provider = "openai",                  -- Recommend using Claude
+  provider = "openai", -- Recommend using Claude
   auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
   claude = {
     endpoint = "https://api.anthropic.com",
@@ -53,10 +53,10 @@ require("avante").setup({
   windows = {
     ---@type "right" | "left" | "top" | "bottom"
     position = "right", -- the position of the sidebar
-    wrap = true,        -- similar to vim.o.wrap
-    width = 30,         -- default % based on available width
+    wrap = true, -- similar to vim.o.wrap
+    width = 30, -- default % based on available width
     sidebar_header = {
-      enabled = true,   -- true, false to enable/disable the header
+      enabled = true, -- true, false to enable/disable the header
       align = "center", -- left, center, right for title
       rounded = true,
     },
@@ -69,7 +69,7 @@ require("avante").setup({
       start_insert = true, -- Start insert mode when opening the edit window
     },
     ask = {
-      floating = false,    -- Open the 'AvanteAsk' prompt in a floating window
+      floating = false, -- Open the 'AvanteAsk' prompt in a floating window
       start_insert = true, -- Start insert mode when opening the ask window, only effective if floating = true.
       border = "rounded",
       ---@type "ours" | "theirs"

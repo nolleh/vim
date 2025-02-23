@@ -7,38 +7,38 @@ source ../../func
 echo "the os is $OS"
 
 if [ ! -e "$HOME/.config/nvim" ]; then
-  echo "no nvim"
-  exit 0
+	echo "no nvim"
+	exit 0
 fi
 
 INSTALL_PATH=$HOME/.config/nvim/lua/custom
 mkdir -p "$INSTALL_PATH"
 
 main() {
-  opts "$@"
-  cp -r ./* "$INSTALL_PATH"
+	opts "$@"
+	cp -r ./* "$INSTALL_PATH"
 
-  if [ $PACKAGE = true ]; then
-    PKGM=$(getpkgm)
-    echo "install package for nvim configuration"
-    # node
-    install nodejs "$PKGM"
-    install npm "$PKGM"
-    install delve "$PKGM" 
+	if [ $PACKAGE = true ]; then
+		PKGM=$(getpkgm)
+		echo "install package for nvim configuration"
+		# node
+		install nodejs "$PKGM"
+		install npm "$PKGM"
+		install delve "$PKGM"
 
-    # pnpm
-    PNPM=$(which pnpm)
+		# pnpm
+		PNPM=$(which pnpm)
 
-    if [ -z "$PNPM" ]; then
-      echo "install pnpm"
-      curl -fsSL https://get.pnpm.io/install.sh | sh -
-      #npm --global add pnpm
-    fi
+		if [ -z "$PNPM" ]; then
+			echo "install pnpm"
+			curl -fsSL https://get.pnpm.io/install.sh | sh -
+			#npm --global add pnpm
+		fi
 
-    # plugin
-    install libmagickwand-dev "$PKGM"
-    pnpm add -g @mermaid-js/mermaid-cli
-  fi
+		# plugin
+		install libmagickwand-dev "$PKGM"
+		pnpm add -g @mermaid-js/mermaid-cli
+	fi
 }
 
 main "$@"
