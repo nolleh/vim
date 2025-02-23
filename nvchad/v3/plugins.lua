@@ -113,7 +113,8 @@ local plugins = {
         -- c#
         "csharp-language-server",
         "omnisharp",
-        "csharpier"
+        "csharpier",
+        "deno"
       },
     },
     config = function(_, opts)
@@ -341,7 +342,7 @@ local plugins = {
       "DapNew"
     },
     config = function()
-      require("custom.configs.dap2")
+      require("custom.configs.dap")
     end,
   },
 
@@ -366,6 +367,30 @@ local plugins = {
       },
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
+  },
+
+  {
+    "skanehira/denops-docker.vim",
+    dependencies = {
+      "vim-denops/denops.vim",
+    }
+  },
+
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {}
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
   }
 }
 
