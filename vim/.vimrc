@@ -125,7 +125,7 @@ augroup ProjectDrawer
   " autocmd VimEnter * :Vexplore
   autocmd VimEnter * :NERDTreeToggle
   autocmd VimEnter * :TagbarToggle
-  autocmd VimEnter * call LexResize()
+  " autocmd VimEnter * call LexResize()
   autocmd VimEnter * wincmd l
 "  auto VimEnter * call s:openTerm()
 "  autocmd WinNew * wincmd L

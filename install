@@ -16,7 +16,7 @@ echo "done: install nvim-config"
 
 echo "install vimrc, from $PWD"
 
-cp -r ./vim/.vim/ ~/
+cp -r ./vim/.vim ~/
 
 case "$OS" in
 "MAC")
