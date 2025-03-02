@@ -5,6 +5,12 @@ dap.adapters.lldb = {
   name = "lldb",
 }
 
+dap.adapters.coreclr = {
+  type = "executable",
+  command = ".local/share/nvim/lazy/netcoredbg-macOS-arm64.nvim/netcoredbg",
+  args = "--interpreter=vscode",
+}
+
 require("dap-go").setup()
 
 require("nvim-dap-virtual-text").setup({})
@@ -81,23 +87,57 @@ require("dap").configurations.rust = {
   lldb,
 }
 
-require("netcoredbg-macOS-arm64").setup(require("dap"))
+-- require("netcoredbg-macOS-arm64").setup(require("dap"))
+local function file_exists(name)
+  local f = io.open(name, "r")
+  if f ~= nil then
+    io.close(f)
+    return true
+  else
+    return false
+  end
+end
 
-require("dap").configuration.cs = {
+local function getCurrentFileDirName()
+  local fullPath = vim.fn.expand("%s:p:h") -- Get the full path of the directory containing the current file
+  local dirName = fullPath:match("([])")   -- Extract the directory name
+  return dirName
+end
+
+local function get_dll_path()
+  local debugPath = vim.fn.expand('%:p:h') .. '/bin/Debug'
+  if not file_exists(debugPath) then
+    return vim.fn.getcwd()
+  end
+  local command = 'find "' .. debugPath .. '" -maxdepth 1 -type d -name "*net*" -print -quit'
+  local handle = io.popen(command)
+  local result = handle:read("*a")
+  handle:close()
+  result = result:gsub("[\r\n]+$", "")   -- Remove trailing newline and carriage return
+  if result == "" then
+    return debugPath
+  else
+    local potentialDllPath = result .. '/' .. getCurrentFileDirName() .. '.dll'
+    if file_exists(potentialDllPath) then
+      return potentialDllPath
+    else
+      return result == "" and debugPath or result .. '/'
+    end
+    --        return result .. '/' -- Adds a trailing slash if a net folder is found
+  end
+end
+
+dap.configuration.cs = {
   type = "coreclr",
   name = "launch - netcoredbg",
   request = "launch",
   justMyCode = false,
   stopOnEntry = false,
   program = function()
-    return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/", "file")
+    return vim.fn.input("Path to dll", get_dll_path(), "file")
   end,
-  env = {
-    ASPNETCORE_ENVIRONMENT = function()
-      return "Development"
-    end,
-    ASPNETCORE_URLS = function()
-      return "http://localhost:5050"
-    end,
-  },
+  env = function()
+    local profile = vim.fn.input("profile: ", "docker")
+  return require("custom.configs.profile").profile[profile]
+  end,
 }
