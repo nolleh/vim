@@ -11,7 +11,7 @@ if [ ! -e "$HOME/.config/nvim" ]; then
 	exit 0
 fi
 
-INSTALL_PATH=$HOME/.config/nvim/lua/custom
+INSTALL_PATH=$HOME/.config/nvim/
 mkdir -p "$INSTALL_PATH"
 
 main() {
