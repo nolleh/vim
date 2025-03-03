@@ -11,12 +11,16 @@ if [ ! -e "$HOME/.config/nvim" ]; then
 	exit 0
 fi
 
-INSTALL_PATH=$HOME/.config/nvim/
+INSTALL_PATH="$HOME/.config/nvim/"
+[[ "$CUSTOM" == "true" ]] && SUBTREE="" || SUBTREE="/lua/custom/"
+INSTALL_PATH+=$SUBTREE
+
 mkdir -p "$INSTALL_PATH"
 
 main() {
 	opts "$@"
-	cp -r ./* "$INSTALL_PATH"
+	echo "nvchad/v3 install path from: ./$SUBTREE/* to: $INSTALL_PATH"
+	cp -r ./$SUBTREE/* "$INSTALL_PATH"
 
 	if [ $PACKAGE = true ]; then
 		PKGM=$(getpkgm)

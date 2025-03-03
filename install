@@ -6,7 +6,7 @@ set -e
 [ -f ./func ] && source ./func
 opts "$@"
 
-echo "install nvim-config"
+echo "install nvim-config chadv3: $NVCHAD_V3"
 if [ $NVCHAD_V3 == true ]; then
 	cd ./nvchad/v3 && ./install "$@" && cd -
 else
