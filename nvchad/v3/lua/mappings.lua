@@ -1,5 +1,5 @@
-require "nvchad.mappings"
-require "custom.mappings"
+require("nvchad.mappings")
+require("custom.mappings")
 
 -- add yours here
 
