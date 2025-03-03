@@ -19,6 +19,14 @@ main() {
 		PKGM=$(getpkgm)
 		echo "install packages. pkgm $PKGM"
 
+		# nvm download and install
+		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+		# Node.js
+		nvm install 22
+
+		# install npm "$PKGM"
+		install delve "$PKGM"
+
 		# node
 		install nodejs "$PKGM"
 		install npm "$PKGM"

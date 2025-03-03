@@ -401,6 +401,8 @@ local plugins = {
 
   {
     "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
     ---@type snacks.Config
     opts = {
       image = {
@@ -410,6 +412,9 @@ local plugins = {
         enabled = true,
       },
     },
+    config = function(_, opts)
+      require("custom.configs.snacks").setup(opts)
+    end,
   },
 }
 

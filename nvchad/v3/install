@@ -26,10 +26,15 @@ main() {
 		PKGM=$(getpkgm)
 		echo "install package for nvim configuration"
 		# node
-		install nodejs "$PKGM"
-		install npm "$PKGM"
-		install delve "$PKGM"
+		# install nodejs "$PKGM"
 
+		# nvm download and install
+		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+		# Node.js
+		nvm install 22
+
+		# install npm "$PKGM"
+		install delve "$PKGM"
 		# pnpm
 		PNPM=$(which pnpm)
 
@@ -38,7 +43,6 @@ main() {
 			curl -fsSL https://get.pnpm.io/install.sh | sh -
 			#npm --global add pnpm
 		fi
-
 		# plugin
 		install libmagickwand-dev "$PKGM"
 		pnpm add -g @mermaid-js/mermaid-cli
