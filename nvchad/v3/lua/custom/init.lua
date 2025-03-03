@@ -3,33 +3,6 @@
 
 -- Variables: {{{
 
--- vim.g.python3_host_prog = "${PYENV_ROOT}/versions/neovim/bin/python"
-
-vim.opt.mouse = "a"
-vim.opt.autoindent = true
-
--- if you do not desclare "local",
--- lua variables are global by default --> that include function
-local set = vim.opt
-set.ts = 2
-set.shiftwidth = 2
-set.expandtab = true
-
--- set.spell = true
---set.foldmethod = syntax
---vim.g.autosave = true
--- vimwiki
--- if clipboard not work, apt install xclip
-vim.cmd([[
-  set termguicolors
-  set nocompatible
-  filetype plugin on
-  syntax on
-  set clipboard+=unnamedplus
-  set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
-  set list listchars=tab:>-,eol:$,space:·
-]])
-
 local function system(command)
   local file = assert(io.popen(command, "r"))
   local output = file:read("*all"):gsub("%s+", "")
