@@ -154,19 +154,21 @@ M.setup = function()
   --   },
   -- }
 
-  dap.configuration.cs = {
-    type = "coreclr",
-    name = "launch - netcoredbg",
-    request = "launch",
-    justMyCode = false,
-    stopOnEntry = false,
-    program = function()
-      return vim.fn.input("Path to dll", get_dll_path(), "file")
-    end,
-    env = function()
-      local profile = vim.fn.input("profile: ", "docker")
-      return require("custom.configs.profile").profile[profile]
-    end,
+  dap.configurations.cs = {
+    {
+      type = "coreclr",
+      name = "launch - netcoredbg",
+      request = "launch",
+      justMyCode = false,
+      stopOnEntry = false,
+      program = function()
+        return vim.fn.input("Path to dll", get_dll_path(), "file")
+      end,
+      env = function()
+        local profile = vim.fn.input("profile: ", "docker")
+        return require("custom.configs.profile").profile[profile]
+      end,
+    },
   }
 end
 
