@@ -1,3 +1,4 @@
+require("nvchad.configs.lspconfig").defaults()
 local nvlsp = require("nvchad.configs.lspconfig")
 local lspconfig = require("lspconfig")
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
