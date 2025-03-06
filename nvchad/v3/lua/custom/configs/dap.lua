@@ -80,7 +80,7 @@ M.setup = function()
     runInTerminal = false,
   }
 
-  require("dap").configurations.rust = {
+  dap.configurations.rust = {
     lldb,
   }
 
