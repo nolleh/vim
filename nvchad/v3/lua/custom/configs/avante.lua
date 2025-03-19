@@ -45,8 +45,8 @@ require("avante").setup({
     sidebar = {
       apply_all = "A",
       apply_cursor = "a",
-      switch_windows = "<Tab>",
-      reverse_switch_windows = "<S-Tab>",
+      switch_windows = "tn",
+      reverse_switch_windows = "tp",
     },
   },
   hints = { enabled = true },
