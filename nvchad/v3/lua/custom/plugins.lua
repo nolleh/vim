@@ -427,7 +427,7 @@ local plugins = {
       require("mcphub").setup({
         -- Required options
         port = 3000, -- Port for MCP Hub server
-        config = vim.fn.expand("~/mcpservers.json"), -- Absolute path to config file
+        config = vim.fn.expand("~/Library/Application Support/Claude/claude_desktop_config.json"), -- Absolute path to config file
 
         -- Optional options
         on_ready = function(hub)
