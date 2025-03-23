@@ -1,3 +1,4 @@
+-- https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
@@ -13,6 +14,8 @@ local options = {
     cpp = { "clang-format" },
     go = { "gofmt" },
     cs = { "csharpier" },
+    toml = { "prettier" },
+    python = { "black" },
   },
 }
 

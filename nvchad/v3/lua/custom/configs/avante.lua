@@ -1,8 +1,8 @@
 -- https://github.com/yetone/avante.nvim/blob/main/lua/avante/config.lua
 require("avante").setup({
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-  provider = "openai", -- Recommend using Claude
-  auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+  provider = "claude", -- Recommend using Claude
+  auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
   claude = {
     endpoint = "https://api.anthropic.com",
     model = "claude-3-5-sonnet-20241022",
@@ -93,4 +93,17 @@ require("avante").setup({
     --- Disable by setting to -1.
     override_timeoutlen = 500,
   },
+
+  -- other config
+  -- The system_prompt type supports both a string and a function that returns a string. Using a function here allows dynamically updating the prompt with mcphub
+  system_prompt = function()
+    local hub = require("mcphub").get_hub_instance()
+    return hub:get_active_servers_prompt()
+  end,
+  -- The custom_tools type supports both a list and a function that returns a list. Using a function here prevents requiring mcphub before it's loaded
+  custom_tools = function()
+    return {
+      require("mcphub.extensions.avante").mcp_tool(),
+    }
+  end,
 })
