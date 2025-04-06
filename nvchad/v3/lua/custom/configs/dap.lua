@@ -19,7 +19,7 @@ M.setup = function()
       -- You can add a "console" section to merge the terminal with the other views
       sections = { "watches", "exceptions", "breakpoints", "threads", "repl" },
       -- Must be one of the sections declared above
-      default_section = "repl",
+      default_section = "watches",
     },
     windows = {
       height = 15,
