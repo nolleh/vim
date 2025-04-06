@@ -8,28 +8,46 @@ M.setup = function()
   require("nvim-dap-virtual-text").setup({})
   vim.g.dap_virtual_text = true
 
-  -- require("persistent-breakpoints").setup({
-  --   load_breakpoints_event = { "BufReadPost" }
-  -- })
-  local dapui = require("dapui")
-  dapui.setup()
+  require("persistent-breakpoints").setup({
+    load_breakpoints_event = { "BufReadPost" },
+  })
 
-  dap.listeners.before.attach.dapui_config = function()
-    dapui.open()
+  local dv = require("dap-view").setup({
+    winbar = {
+      show = true,
+      -- You can add a "console" section to merge the terminal with the other views
+      sections = { "watches", "exceptions", "breakpoints", "threads", "repl" },
+      -- Must be one of the sections declared above
+      default_section = "repl",
+    },
+    windows = {
+      height = 15,
+      terminal = {
+        -- 'left'|'right'|'above'|'below': Terminal position in layout
+        position = "left",
+        -- List of debug adapters for which the terminal should be ALWAYS hidden
+        hide = {},
+        -- Hide the terminal when starting a new session
+        start_hidden = false,
+      },
+    },
+  })
+
+  dap.listeners.before.attach["dap-view-config"] = function()
+    dv.open()
   end
 
-  dap.listeners.before.launch.dapui_config = function()
-    dapui.open()
+  dap.listeners.before.launch["dap-view-config"] = function()
+    dv.open()
   end
 
-  dap.listeners.before.event_terminated.dapui_config = function()
-    dapui.close()
+  dap.listeners.before.event_terminated["dap-view-config"] = function()
+    dv.close()
   end
 
-  dap.listeners.before.event_exited.dapui_config = function()
-    dapui.close()
+  dap.listeners.before.event_exited["dap-view-config"] = function()
+    dv.close()
   end
-
   -- vim.highlight.create('DapBreakpoint', { ctermbg = 0, guifg = '#993939', guibg = '#31353f' }, false)
   -- vim.highlight.create('DapLogPoint', { ctermbg = 0, guifg = '#61afef', guibg = '#31353f' }, false)
   -- vim.highlight.create('DapStopped', { ctermbg = 0, guifg = '#98c379', guibg = '#31353f' }, false)

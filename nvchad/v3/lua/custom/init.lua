@@ -183,3 +183,11 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     })
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  -- pattern = { "dap-view", "dap-view-term", "dap-repl" }, -- dap-repl is set by `nvim-dap`
+  pattern = { "dap-float" },
+  callback = function(evt)
+    vim.keymap.set("n", "q", "<C-w>q", { silent = true, buffer = evt.buf })
+  end,
+})

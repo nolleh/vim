@@ -334,18 +334,15 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      {
-        "rcarriga/nvim-dap-ui",
-        dependencies = {
-          "nvim-neotest/nvim-nio",
-        },
-      },
+      "igorlfs/nvim-dap-view",
+      "Weissle/persistent-breakpoints.nvim",
       "leoluz/nvim-dap-go",
       "Cliffback/netcoredbg-macOS-arm64.nvim",
       "theHamsta/nvim-dap-virtual-text",
     },
     cmd = {
       "DapNew",
+      "DapViewToggle",
     },
     config = function()
       require("custom.configs.dap").setup()
