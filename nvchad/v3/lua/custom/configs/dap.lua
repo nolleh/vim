@@ -12,7 +12,8 @@ M.setup = function()
     load_breakpoints_event = { "BufReadPost" },
   })
 
-  local dv = require("dap-view").setup({
+  local dv = require("dap-view")
+  dv.setup({
     winbar = {
       show = true,
       -- You can add a "console" section to merge the terminal with the other views
