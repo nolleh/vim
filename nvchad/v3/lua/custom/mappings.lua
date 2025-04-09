@@ -84,7 +84,15 @@ map("n", "<leader>D", function()
 end, { noremap = true })
 map("n", "gi", require("omnisharp_extended").telescope_lsp_implementation, { noremap = true })
 
-map("n", "<leader>drr", ":DapNew<CR>", { desc = "run debugger" })
+map("n", "<leader>drr", function()
+  local dap = require("dap")
+  if dap.session() then
+    dap.terminate()
+  else
+    dap.continue()
+  end
+end, { desc = "toggle debugger" })
+
 map("n", "<leader>dc", function()
   require("dap").continue()
 end, { desc = "dap continue" })
