@@ -492,6 +492,29 @@ local plugins = {
       })
     end,
   },
+  {
+    "nolleh/sqlsnap.nvim",
+    config = function()
+      require("sqlsnap").setup({
+        -- databases = {
+        --   -- Add at least one database configuration
+        --   {
+        --     name = "example_db",
+        --     type = "mysql", -- or postgresql, sqlite
+        --     host = "localhost",
+        --     port = 3306,
+        --     database = "your_database",
+        --     username = "your_username",
+        --     password = "your_password",
+        --   },
+        -- },
+        -- not commited, because it has env specific data.
+        require("custom.configs.sqlsnap"),
+      })
+    end,
+    cmd = { "SQLSnapSelectDB", "SQLSnapExecute", "SQLSnapExecuteBuf" },
+    ft = { "sql" },
+  },
 }
 
 return plugins
