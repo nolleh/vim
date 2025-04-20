@@ -2,6 +2,7 @@ let mapleader=" "
 
 set cb+=unnamed
 set nu
+set relativenumber
 
 " highlight matches with the last search pattern
 set hls
@@ -14,9 +15,6 @@ set sc
 
 "information to remember after restart
 set vi='100,<1000,s100,h
-
-Plug 'preservim/nerdtree'
-set NERDTree
 
 "mappings
 noremap J 5j
@@ -43,6 +41,8 @@ nmap gi <action>(GotoImplementation)
 nmap gs :sp<CR><action>(GotoDefinition)
 nmap gv :vsp<CR><action>(GotoDefinition)
 
+map <leader>o <action>(FileStructurePopup)
+
 " bookmark in whole program
 nmap ma <action>(ToggleBookmark)
 
@@ -56,6 +56,7 @@ map <C-N> :NERDTreeToggle<CR>
 " change tab
 nmap tn <action>(NextTab)
 nmap tp <action>(PreviousTab)
+nmap <leader>x <action>(CloseEditor)
 
 map <leader>.z <action>(MaximizeEditorInSplit)
 
@@ -69,7 +70,18 @@ nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
 " nmap <leader>fb <action>(ShowBookmarks)
 "nmap <leader>wo <action>(Un splitAll) \| <action>(HideAllWindows)
 
+imap jk <ESC>
+nmap <leader>/ <action>(CommentByLineComment)
+vmap <leader>/ <action>(CommentByLineComment)
 
+nmap ,a <action>(GotoAction)
+vmap ,a <action>(GotoAction)
+
+nmap <leader>td <action>(ActivateTODOToolWindow)
+nmap <leader>e <action>(ActivateProjectToolWindow)
+
+Plug 'preservim/nerdtree'
+set NERDTree
 " NERDTree
 let g:NERDTreeMapJumpParent="h"
 let g:NERDTreeMapJumpRoot="H"
