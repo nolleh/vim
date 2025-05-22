@@ -19,6 +19,15 @@ mkdir -p "$INSTALL_PATH"
 
 main() {
 	opts "$@"
+
+	cp mcp.json "$HOME"
+
+	rm -rf "$HOME/Library/Application Support/Claude/claude_desktop_config.json"
+	ln -s "$HOME/mcp.json" "$HOME/Library/Application Support/Claude/claude_desktop_config.json"
+
+	rm -rf "$HOME/.cursor/mcp.json"
+	ln -s "$HOME/mcp.json" "$HOME/.cursor/mcp.json"
+
 	echo "nvchad/v3 install path from: ./$SUBTREE/* to: $INSTALL_PATH"
 	cp -r ./$SUBTREE/* "$INSTALL_PATH"
 
